@@ -13,22 +13,25 @@ class Timer {
 		vector<long> secRecords;
 		vector<long> minRecords;
 	public:
-		// Precondition: 
-		// Postcondition: 
+		// Precondition: n/a
+		// Postcondition: empty init
 		Timer();
 
-		// Precondition: 
-		// Postcondition: 
+		// Precondition: create a Timer class
+		// Postcondition: sets initial time
 		void start();
-		// Precondition: 
-		// Postcondition: 
+		// Precondition: start();
+		// Postcondition: sets end time and the difference between start and end
 		void end();
 
-		// Precondition: 
-		// Postcondition: 
+		// Precondition: end();
+		// Postcondition: returns seconds part of this_time
+		int getSeconds();
+		// Precondition: end();
+		// Postcondition: returns minutes part of this_time
 		int getMinutes();
-		// Precondition: 
-		// Postcondition: 
+		// Precondition: end();
+		// Postcondition: sets record of most current time
 		void setRecord();
 
 		// Precondition: 

@@ -6,9 +6,10 @@
 #include <vector>
 #include "Timer.h"
 
-Timer::Timer() {
-	start();
-}
+//TO DO: error handling?
+//example: shouldn't be allowed to start() twice in a row without end()'ing...
+
+Timer::Timer() {}
 void Timer::start() {
 	start_time = time(0);
 }
@@ -17,8 +18,17 @@ void Timer::end() {
 	this_time = end_time - start_time;
 }
 
+int Timer::getSeconds() {
+	secs = this_time;
+	if (secs >= 60) {
+		int reps = 1;
+		for (reps; secs > 60; reps++) secs -= 60;
+	}
+	return secs;
+}
 int Timer::getMinutes() {
-	if (this_time >= 60) {
+	secs = this_time;
+	if (secs >= 60) {
 		int reps = 1;
 		for (reps; secs > 60; reps++) secs -= 60;
 		mins = reps;
@@ -26,10 +36,8 @@ int Timer::getMinutes() {
 	return mins;
 }
 void Timer::setRecord() {
-	secs = this_time;
-	mins = getMinutes();
-	secRecords.push_back(sec);
-	minRecords.push_back(min);
+	secRecords.push_back(getSeconds());
+	minRecords.push_back(getMinutes());
 }
 
 long Timer::getSecRecord(int index) {
