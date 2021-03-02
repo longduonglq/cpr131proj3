@@ -2,9 +2,14 @@
 //
 
 #include <iostream>
+#include <string>
+#include "Timer.h"
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+    cout << "The time is \n" << ;
+    string something;
+    cin >> something;
+    cout << "\nThe time is now " << ;
 }
 

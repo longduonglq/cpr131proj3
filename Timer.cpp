@@ -18,46 +18,33 @@ void Timer::end() {
 	this_time = end_time - start_time;
 }
 
-int Timer::getSeconds() {
+void Timer::setRecord() {
 	secs = this_time;
 	if (secs >= 60) {
 		int reps = 1;
-		for (reps; secs > 60; reps++) secs -= 60;
-	}
-	return secs;
-}
-int Timer::getMinutes() {
-	secs = this_time;
-	if (secs >= 60) {
-		int reps = 1;
-		for (reps; secs > 60; reps++) secs -= 60;
+		for (reps; secs >= 60; reps++) secs -= 60;
 		mins = reps;
 	}
-	return mins;
+	secRecords.push_back(secs);
+	minRecords.push_back(mins);
 }
-void Timer::setRecord() {
-	secRecords.push_back(getSeconds());
-	minRecords.push_back(getMinutes());
-}
-
 long Timer::getSecRecord(int index) {
-	return secRecords<index>;
+	return secRecords[index];
 }
 long Timer::getMinRecord(int index) {
-	return minRecords<index>;
+	return minRecords[index];
 }
 
-long Timer::getAverageSec() {
+long Timer::getAverage(vector<long> vals) {
 	long avg = 0;
 	int i = 0;
-	for (i; i < secRecords.size(); i++)
-		avg += secRecords<i>;
+	for (i; i < vals.size(); i++)
+		avg += vals[i];
 	return avg / i;
 }
 long Timer::getAverageSec() {
-	long avg = 0;
-	int i = 0;
-	for (i; i < minRecords.size(); i++)
-		avg += minRecords<i>;
-	return avg / i;
+	return getAverage(secRecords);
+}
+long Timer::getAverageMin() {
+	return getAverage(minRecords);
 }
