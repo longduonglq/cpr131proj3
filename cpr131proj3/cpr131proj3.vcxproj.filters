@@ -29,5 +29,8 @@
     <ClInclude Include="part3\queen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
