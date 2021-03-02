@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Timer.cpp" />
     <ClCompile Include="cpr131proj3.cpp" />
   </ItemGroup>
   <ItemGroup>
