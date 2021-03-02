@@ -139,14 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Timer.cpp" />
     <ClCompile Include="cpr131proj3.cpp" />
+    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Timer.h" />
     <ClInclude Include="part1\tictactoe.h" />
     <ClInclude Include="part2\tower.h" />
     <ClInclude Include="part3\queen.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

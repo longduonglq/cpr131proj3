@@ -10,6 +10,7 @@ class Timer {
 	private:
 		long long start_time, end_time, this_time;
 		long mins = 0.0, secs = 0.0; //I remembered, Quach ;)
+		vector<long> timeRecords;
 		vector<long> secRecords;
 		vector<long> minRecords;
 	public:
@@ -17,9 +18,21 @@ class Timer {
 		// Postcondition: empty init
 		Timer();
 
+		// Precondition: pass in a long val to divvy into minutes and seconds
+		// Postcondition: sets minutes and second values according to time given
+		void setSecsAndMins(long full_time);
+
 		// Precondition: pass in a vector of longs
 		// Postcondition: returns average of all values in the vector
 		long getAverage(vector<long> vals);
+
+		// Precondition: setRecord();
+		// Postcondition: returns average time of all times recorded
+		void setAverageSecsAndMins();
+
+		// Precondition: end();
+		// Postcondition: clocks record of most current time
+		void setRecord();
 
 
 		//	use these for chapter 3 projects:
@@ -31,10 +44,6 @@ class Timer {
 		// Precondition: start();
 		// Postcondition: sets end time and the difference between start and end
 		void end();
-
-		// Precondition: end();
-		// Postcondition: clocks record of most current time
-		void setRecord();
 
 		// Precondition: setRecord();
 		// Postcondition: returns seconds clocked for (index + 1)th time recorded
