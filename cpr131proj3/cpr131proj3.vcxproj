@@ -141,6 +141,11 @@
   <ItemGroup>
     <ClCompile Include="cpr131proj3.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="part1\tictactoe.h" />
+    <ClInclude Include="part2\tower.h" />
+    <ClInclude Include="part3\queen.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
