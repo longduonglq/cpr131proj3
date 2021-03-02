@@ -6,7 +6,7 @@
 #include "Timer.h"
 using namespace std;
 
-int TimerDemo() {
+void TimerDemo() {
     Timer myTimer;
     for (int i = 0; 1 == 1; i++) {
         myTimer.start();

@@ -18,7 +18,7 @@ long Timer::getAverage(vector<long> vals) {
 void Timer::setSecsAndMins(long full_time) {
 	secs = full_time;
 	if (secs >= 60) {
-		int reps = 1;
+		int reps = 0;
 		for (reps; secs >= 60; reps++) secs -= 60;
 		mins = reps;
 	}
