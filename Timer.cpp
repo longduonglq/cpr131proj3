@@ -9,16 +9,22 @@
 Timer::Timer() {
 	start();
 }
-Timer::start() {
-	start_time = time;
+void Timer::start() {
+	start_time = time(0);
 }
-Timer::end() {
-	end_time = time;
-	//this_time = end_time - start_time;
+void Timer::end() {
+	end_time = time(0);
+	this_time = end_time - start_time;
 }
-Timer::getSeconds() {
-	//return ;
+int Timer::getSeconds() {
+	int secs = this_time;
+	if (this_time < 60) return secs;
+	else t
+	return 
 }
-Timer::getMinutes() {
-	//floor 
+int Timer::getMinutes() {
+	//floor()
+}
+void Timer::setRecord(int sec, int min) {
+
 }

@@ -4,8 +4,14 @@
 
 #pragma once
 #include <vector>
+using namespace std;
 
 class Timer {
+	private:
+		vector<int> secRecord;
+		vector<int> minRecord;
+		long long start_time, end_time, this_time;
+
 	public:
 		// Precondition: 
 		// Postcondition: 
@@ -24,8 +30,7 @@ class Timer {
 		// Precondition: 
 		// Postcondition: 
 		int getMinutes();
-
-	private:
-		long long start_time, end_time, this_time;
-
+		// Precondition: 
+		// Postcondition: 
+		void setRecord(int sec, int min);
 };
