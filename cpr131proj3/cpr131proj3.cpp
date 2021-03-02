@@ -7,9 +7,10 @@
 using namespace std;
 
 int main() {
-    cout << "The time is \n" << ;
+    Timer myTimer;
+    myTimer.start();
     string something;
     cin >> something;
-    cout << "\nThe time is now " << ;
+    myTimer.end();
 }
 

@@ -6,16 +6,24 @@
 #include <vector>
 #include "Timer.h"
 
+using namespace std; //DEBUG
+#include <iostream> //DEBUG
+
 //TO DO: error handling?
 //example: shouldn't be allowed to start() twice in a row without end()'ing...
 
 Timer::Timer() {}
 void Timer::start() {
 	start_time = time(0);
+	//DEBUG:
+	cout << "\nThe time was " << start_time;
 }
 void Timer::end() {
 	end_time = time(0);
+	//DEBUG:
+	cout << "\nThe time is " << end_time;
 	this_time = end_time - start_time;
+	setRecord();
 }
 
 void Timer::setRecord() {
