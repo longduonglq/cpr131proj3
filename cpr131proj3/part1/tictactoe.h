@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../Timer.h"
+
 class TicTacToe
 {
 public:
@@ -28,5 +30,5 @@ public:
 
 private:
 	bool gameBoard[3][3];
-
+	Timer timer;
 };
