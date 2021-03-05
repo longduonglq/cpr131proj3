@@ -1,4 +1,5 @@
 #pragma once
+//updated inline version. allows calling this from multiple places
 
 #include <iostream>
 #include <algorithm>
@@ -7,7 +8,7 @@
 using namespace std;
 
 //return an input char
-char inputChar(string prompt, string listChars)
+inline char inputChar(string prompt, string listChars)
 {
 	char input;
 	do
@@ -40,7 +41,7 @@ char inputChar(string prompt, string listChars)
 }
 
 //return an input char of y or n
-char inputChar(string prompt, char yes, char no)
+inline char inputChar(string prompt, char yes, char no)
 {
 	char input;
 	do
@@ -62,7 +63,7 @@ char inputChar(string prompt, char yes, char no)
 }
 
 //return an input char
-char inputChar(string prompt, bool alphaOrDigit)
+inline char inputChar(string prompt, bool alphaOrDigit)
 {
 	char input;
 	do
@@ -85,7 +86,7 @@ char inputChar(string prompt, bool alphaOrDigit)
 }
 
 //return an input char
-char inputChar(string prompt)
+inline char inputChar(string prompt)
 {
 	char input;
 	do
@@ -103,7 +104,7 @@ char inputChar(string prompt)
 	return input;
 }
 
-string inputString(string prompt, int size)
+inline string inputString(string prompt, int size)
 {
 	string input;
 	do
@@ -124,7 +125,7 @@ string inputString(string prompt, int size)
 }
 
 //return an input interger
-int inputInteger(string prompt)
+inline int inputInteger(string prompt)
 {
 	int input;
 	do
@@ -143,7 +144,7 @@ int inputInteger(string prompt)
 }
 
 //return an integer where posNeg is positive (true) or negative (false)
-int inputInteger(string prompt, bool posNeg)
+inline int inputInteger(string prompt, bool posNeg)
 {
 	int input;
 	do
@@ -166,7 +167,7 @@ int inputInteger(string prompt, bool posNeg)
 }
 
 //return an input integer within range ,start and end
-int inputInteger(string prompt, int startRange, int endRange)
+inline int inputInteger(string prompt, int startRange, int endRange)
 {
 
 	int input;
@@ -191,7 +192,7 @@ int inputInteger(string prompt, int startRange, int endRange)
 	return input;
 }
 
-int inputInteger(string prompt, int startRange, int notAllowedNumber, int endRange)
+inline int inputInteger(string prompt, int startRange, int notAllowedNumber, int endRange)
 {
 
 	int input;
@@ -214,7 +215,7 @@ int inputInteger(string prompt, int startRange, int notAllowedNumber, int endRan
 }
 
 //return an input double
-double inputDouble(string prompt)
+inline double inputDouble(string prompt)
 {
 	double input;
 	do
@@ -233,7 +234,7 @@ double inputDouble(string prompt)
 }
 
 //return a double where posNeg is positive (true) or negative (false)
-double inputDouble(string prompt, bool posNeg)
+inline double inputDouble(string prompt, bool posNeg)
 {
 	double input;
 	do
@@ -256,7 +257,7 @@ double inputDouble(string prompt, bool posNeg)
 }
 
 //return an input double within range ,start and end
-double inputDouble(string prompt, double startRange, double endRange)
+inline double inputDouble(string prompt, double startRange, double endRange)
 {
 	double input;
 	do
