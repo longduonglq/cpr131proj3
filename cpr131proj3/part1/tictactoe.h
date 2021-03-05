@@ -8,8 +8,14 @@ public:
 	enum Verdict {
 		USER_WINS,
 		USER_LOSES,
-		NEITHER
+		IN_PROGRESS
 	};
+	enum PIXEL : char {
+		PLAYER = 'o',
+		COMPUTER = 'x',
+		EMPTY = ' '
+	};
+
 	// init gameBoard to 0
 	TicTacToe();
 	
@@ -17,7 +23,7 @@ public:
 	void run();
 
 	// set all cells in board to value
-	void setBoardTo(bool value);
+	void setBoardTo(char value);
 
 	// write AI move to board
 	void makeAIMove();
@@ -28,7 +34,13 @@ public:
 	// outputs whether user wins, loses, or neither is true
 	Verdict checkVerdict();
 
+	// add user move into gameBoard
+	void addUserMove(int row, int col);
+
+	// reset to prepare for new game
+	void resetGame();
+
 private:
-	bool gameBoard[3][3];
+	char gameBoard[3][3];
 	Timer timer;
 };
