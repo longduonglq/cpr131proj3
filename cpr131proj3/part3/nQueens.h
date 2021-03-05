@@ -2,18 +2,22 @@
 class nQueens
 {
 private:
-	char **boardPtr;
+	char** boardPtr;
 	size_t dimensions;
+	int queens;
 public:
 	nQueens();
 	/*nQueens(size_t dimensions);*/
 	void initiateGame(); //asks for size, and creates a new array 2 dimensional array to those standards, and assigns board pointer to it
 	void addQueen();
 	void removeQueen();
-	void displayBoard();
-	bool horizantalCheck();
-	bool diagonalCheck();
-	bool verticalCheck();
-	void gameDriver();
+	void displayBoard() const;
+	bool occupiedCheck(int pos1, int pos2);							//pos1=row pos2 = colunm
+	bool horizantalCheck(int pos1, int pos2);
+	bool diagonalCheck(int pos1, int pos2);
+	bool verticalCheck(int pos1, int pos2);
+	char resetGame();
+	bool winCheck() const;
 };
+
 
