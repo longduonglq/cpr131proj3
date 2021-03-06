@@ -40,7 +40,7 @@ int main()
 		case 0:  exit(0);
 		//case 1:  system("cls"); tictactoe();     break;
 		//case 2:  system("cls"); towers();  break;
-		case 3:  system("cls"); nQueensDriver(); break; //startTimer();
+		case 3:  system("cls"); timer(); break; //startTimer();
 		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 		}
 		cout << '\n';
