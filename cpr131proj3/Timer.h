@@ -79,4 +79,6 @@ class Timer
 		// Precondition: setRecord();
 		// Postcondition: returns average of minutes of all times recorded
 		long getAverageMin();
+
+		void displayTimeRecords();
 };

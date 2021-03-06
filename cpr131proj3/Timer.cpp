@@ -127,3 +127,8 @@ long Timer::getAverageMin()
 	setAverageSecsAndMins();
 	return mins;
 }
+
+void Timer::displayTimeRecords()
+{
+	cout << '\n' << mins << " minutes and " << secs << " seconds played this match.\n";
+}

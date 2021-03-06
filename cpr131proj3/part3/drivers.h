@@ -52,6 +52,7 @@ void nQueensDriver()
 	{
 		system("cls");
 		game.initiateGame();
+		myTimer.start();
 		queenHeader();
 		game.displayBoard();
 		cout << "Game options:\n";
@@ -71,6 +72,7 @@ void nQueensDriver()
 			break;
 		if (game.winCheck())
 		{
+			myTimer.end();
 			if (game.getMoves() == 1)
 				cout << "You have won! You solved " << game.getQueens() << "-Queens in " << game.getMoves() << " move.";
 			else
@@ -82,4 +84,5 @@ void nQueensDriver()
 		cout << '\n';
 		system("pause");
 	} while (true);
+	myTimer.displayTimeRecords();
 }
