@@ -6,6 +6,9 @@
 #include <vector>
 #include "Timer.h"
 
+#include <iostream>
+using namespace std;
+
 Timer::Timer() 
 {}
 
@@ -44,12 +47,41 @@ void Timer::end()
 	setRecord();
 }
 
+void Timer::end(int boardDimension)
+{
+	end_time = time(0);
+	this_time = end_time - start_time;
+	setQueenRecord(boardDimension);
+}
+
 void Timer::setRecord() 
 {
 	timeRecords.push_back(this_time);
 	setSecsAndMins(this_time);
 	secRecords.push_back(secs);
 	minRecords.push_back(mins);
+}
+
+void Timer::setQueenRecord(int boardSize)
+{
+	boardSize--;
+	queensArray[boardSize][3] = this_time;
+	setSecsAndMins(this_time);
+	queensArray[boardSize][1] = secs;
+	queensArray[boardSize][2] = mins;
+}
+
+void Timer::printQueenArray()
+{
+	for (int column = 0; column < 55; column++)
+	{
+		for (int row = 0; row < 4; row++)
+		{
+			cout << "\t";
+			cout << queensArray[column][row];
+		}
+		cout << endl;
+	}
 }
 
 long Timer::getSecRecord(int index) 

@@ -14,6 +14,8 @@ class Timer
 		vector<long> timeRecords;
 		vector<long> secRecords;
 		vector<long> minRecords;
+		long queensArray[55][4];
+
 	public:
 		// Precondition: n/a
 		// Postcondition: empty init
@@ -35,6 +37,15 @@ class Timer
 		// Postcondition: clocks record of most current time
 		void setRecord();
 
+		// Precondition: end();
+		// Postcondition: clocks record of most current time at the correct match dimension
+		void setQueenRecord(int boardSize);
+
+
+
+		void printQueenArray();
+
+
 
 		//	use these for chapter 3 projects:
 
@@ -45,6 +56,10 @@ class Timer
 		// Precondition: start();
 		// Postcondition: sets end time and the difference between start and end
 		void end();
+
+		// Precondition: start(); and a board dimension for queens
+		// Postcondition: sets end time and the difference between start and end
+		void end(int boardDimension);
 
 		// Precondition: setRecord();
 		// Postcondition: returns seconds clocked for (index + 1)th time recorded

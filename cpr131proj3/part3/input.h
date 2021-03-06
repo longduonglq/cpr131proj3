@@ -156,9 +156,9 @@ inline int inputInteger(string prompt, bool posNeg)
 			cin.clear();
 			cin.ignore(999, '\n');
 		}
-		else if (posNeg && input < 0)
+		else if (posNeg && input <= 0)
 			cout << "ERROR-2A: Invalid input. Must be a positive number.\n";
-		else if (!posNeg && input >= 0)
+		else if (!posNeg && input > 0)
 			cout << "ERROR-2A: Invalid input. Must be a negative number.\n";
 		else
 			break;

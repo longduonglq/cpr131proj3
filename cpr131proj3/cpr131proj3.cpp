@@ -7,16 +7,13 @@
 #include "part3/drivers.h"
 using namespace std;
 
-void TimerDemo() 
+void startTimer() 
 {
     Timer myTimer;                                      //create class
     for (int i = 0; 1 == 1; i++) 
     {
         myTimer.start();                                //start timer
-        cout << "\t\ttimer started ... \n\t0 to exit (anything else to stop timer) : ";
-        string something;
-        cin >> something;
-        if (something.at(0) == '0') break;
+        nQueensDriver();
         myTimer.end();                                  //end timer
         cout << "\n\n\t" <<
             myTimer.getMinRecord(i) << " minutes " <<   //get minutes at index
@@ -24,11 +21,33 @@ void TimerDemo()
         cout << "\taverage: " <<
             myTimer.getAverageMin() << " minutes " <<   //get average minutes
             myTimer.getAverageSec() << " seconds\n\n";  //get average seconds
+        system("pause");
+        break;
     }
 }
 
 int main() 
 {
-    TimerDemo();
-    nQueensDriver();
+    startTimer();
+    //nQueensDriver();
+    /*	while (true)
+	{
+		for (int x = 0; x < 4; x++)
+		{
+			for (int y = 0; y < 4; y++)
+			{
+				cout << "\t";
+				cout << queensArray[x][y];
+			}
+			cout << endl;
+		}
+
+        for (int column = 0; column < 55; column++)
+        {
+        for (int row = 0; row < 4; row++)
+        {
+            queensArray[column][row];
+        }
+    }
+	}*/
 }

@@ -33,9 +33,9 @@ void nQueensDriver()
 	do
 	{
 		system("cls");
-		myTimer.start();
 		game.initiateGame();
 		game.displayBoard();
+		myTimer.start();
 		cout << "Game options:\n";
 		cout << "1: Place a Queen\n";
 		cout << "2: Remove an existing queen\n";
@@ -56,7 +56,7 @@ void nQueensDriver()
 			cout << "You have won! You solved "<< game.getQueens() << "-Queens in " << game.getMoves() << " move.";
 			else
 				cout << "You have won! You solved " << game.getQueens() << "-Queens in " << game.getMoves() << " moves.";
-			myTimer.end();
+			myTimer.end(game.getDimensions());
 			choice = game.resetGame(); 
 		}
 		if (choice == 'n')
@@ -64,10 +64,5 @@ void nQueensDriver()
 		cout << '\n';
 		system("pause");
 	} while (true);
-	cout << "\n\n\t" <<
-		myTimer.getMinRecord(matchCounter) << " minutes " <<   //get minutes at index
-		myTimer.getSecRecord(matchCounter) << " seconds\n\n";  //get seconds at index
-	cout << "\taverage: " <<
-		myTimer.getAverageMin() << " minutes " <<   //get average minutes
-		myTimer.getAverageSec() << " seconds\n\n";  //get average seconds
+	//myTimer.printQueenArray();
 }

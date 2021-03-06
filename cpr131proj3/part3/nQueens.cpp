@@ -40,7 +40,15 @@ void nQueens::setMoves(int newMoveQuantity)
 
 void nQueens::initiateGame()
 {
-	dimensions = inputInteger("Enter the board's dimensions: ", true);
+	do
+	{
+		dimensions = inputInteger("Enter the board's dimensions: ", true);
+		if (dimensions > 55)
+			cout << "\nThe board is too big. Please enter a dimension less than 55.\n";
+		else
+			break;
+	} while (true);
+
 	int d2 = dimensions;
 	boardPtr = new char* [dimensions];
 	for (int i = 0; i < dimensions; i++)
