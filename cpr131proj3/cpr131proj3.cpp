@@ -7,9 +7,11 @@
 #include "part3/drivers.h"
 using namespace std;
 
-void TimerDemo() {
+void TimerDemo() 
+{
     Timer myTimer;                                      //create class
-    for (int i = 0; 1 == 1; i++) {
+    for (int i = 0; 1 == 1; i++) 
+    {
         myTimer.start();                                //start timer
         cout << "\t\ttimer started ... \n\t0 to exit (anything else to stop timer) : ";
         string something;
@@ -25,6 +27,8 @@ void TimerDemo() {
     }
 }
 
-int main() {
+int main() 
+{
     TimerDemo();
+    nQueensDriver();
 }

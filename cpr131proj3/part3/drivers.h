@@ -5,13 +5,36 @@
 #include <string>
 using namespace std;
 void nQueensDriver();
+void timer(int finish);
+
+void timer(int finish)
+{
+	Timer myTimer;                                      //create class
+	for (int i = 0; 1 == 1; i++)
+	{
+		myTimer.start();                                //start timer
+		if (finish == 0) break;
+		myTimer.end();                                  //end timer
+		cout << "\n\n\t" <<
+			myTimer.getMinRecord(i) << " minutes " <<   //get minutes at index
+			myTimer.getSecRecord(i) << " seconds\n\n";  //get seconds at index
+		cout << "\taverage: " <<
+			myTimer.getAverageMin() << " minutes " <<   //get average minutes
+			myTimer.getAverageSec() << " seconds\n\n";  //get average seconds
+	}
+}
+
 void nQueensDriver()
 {
+	Timer myTimer;
 	nQueens game;
+	int matchCounter = 0; //times the game has been played
 	int menuOption;
-	game.initiateGame();
 	do
 	{
+		system("cls");
+		myTimer.start();
+		game.initiateGame();
 		game.displayBoard();
 		cout << "Game options:\n";
 		cout << "1: Place a Queen\n";
@@ -27,14 +50,24 @@ void nQueensDriver()
 
 		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 		}
-		if (choice == 'n')
-			break;
 		if (game.winCheck())
 		{ 
-			cout << "\n You have won! \n";
+			if(game.getMoves() == 1)
+			cout << "You have won! You solved "<< game.getQueens() << "-Queens in " << game.getMoves() << " move.";
+			else
+				cout << "You have won! You solved " << game.getQueens() << "-Queens in " << game.getMoves() << " moves.";
+			myTimer.end();
 			choice = game.resetGame(); 
 		}
+		if (choice == 'n')
+			break;
 		cout << '\n';
 		system("pause");
 	} while (true);
+	cout << "\n\n\t" <<
+		myTimer.getMinRecord(matchCounter) << " minutes " <<   //get minutes at index
+		myTimer.getSecRecord(matchCounter) << " seconds\n\n";  //get seconds at index
+	cout << "\taverage: " <<
+		myTimer.getAverageMin() << " minutes " <<   //get average minutes
+		myTimer.getAverageSec() << " seconds\n\n";  //get average seconds
 }

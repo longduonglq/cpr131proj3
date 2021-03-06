@@ -9,32 +9,64 @@ nQueens::nQueens()
 	dimensions = 0;
 	boardPtr = nullptr;
 	queens = 0;
+	moves = 0;
 }
+
+int nQueens::getQueens()
+{
+	return queens;
+}
+int nQueens::getDimensions()
+{
+	return dimensions;
+}
+int nQueens::getMoves()
+{
+	return moves;
+}
+
+void nQueens::setQueens(int newQueenQuantity)
+{
+	queens = newQueenQuantity;
+}
+void nQueens::setDimensions(int newDimension)
+{
+	dimensions = newDimension;
+}
+void nQueens::setMoves(int newMoveQuantity)
+{
+	moves = newMoveQuantity;
+}
+
 void nQueens::initiateGame()
 {
-	dimensions = inputInteger("Enter the board's dimensions ", true);
+	dimensions = inputInteger("Enter the board's dimensions: ", true);
 	int d2 = dimensions;
 	boardPtr = new char* [dimensions];
 	for (int i = 0; i < dimensions; i++)
 		boardPtr[i] = new char[dimensions];
-	for (int i = 0; i < dimensions; i++) {
-		for (int j = 0; j < dimensions; j++) {
+	for (int i = 0; i < dimensions; i++) 
+	{
+		for (int j = 0; j < dimensions; j++) 
+		{
 			boardPtr[i][j] = ' ';
 		}
 	}
 }
+
 void nQueens::displayBoard() const
 {
 
-	for (int i = 0; i < dimensions; i++) {
-		for (int j = 0; j < dimensions; j++) {
-
-
+	for (int i = 0; i < dimensions; i++) 
+	{
+		for (int j = 0; j < dimensions; j++) 
+		{
 			cout << '|' << boardPtr[i][j];
 		}
 		cout << '|' << '\n';
 	}
 }
+
 void nQueens::addQueen()
 {
 	int pos1, pos2;
@@ -47,7 +79,7 @@ void nQueens::addQueen()
 	}
 	if (verticalCheck(pos1, pos2))
 	{
-		cout << "\nThere is a queen in that colomn!\n";
+		cout << "\nThere is a queen in that column!\n";
 		return;
 	}
 	if (horizantalCheck(pos1, pos2))
@@ -61,9 +93,11 @@ void nQueens::addQueen()
 		return;
 	}
 	boardPtr[pos1][pos2] = 'Q';
+	moves++;
 	queens++;
 	return;
 }
+
 void nQueens::removeQueen()
 {
 	int pos1, pos2;
@@ -78,11 +112,13 @@ void nQueens::removeQueen()
 	{
 		boardPtr[pos1][pos2] = ' ';
 		cout << "\nQueen removed!\n";
+		moves++;
 		queens--;
 		return;
 	}
 
 }
+
 bool nQueens::occupiedCheck(int pos1, int pos2)
 {
 	if (boardPtr[pos1][pos2] == 'Q')
@@ -90,6 +126,7 @@ bool nQueens::occupiedCheck(int pos1, int pos2)
 	else
 		return false;
 }
+
 bool nQueens::diagonalCheck(int pos1, int pos2)
 {
 	for (int row = pos1, colomn = pos2; row < dimensions && colomn < dimensions; row++, colomn++)
@@ -122,9 +159,9 @@ bool nQueens::diagonalCheck(int pos1, int pos2)
 	}
 	return false;
 }
+
 bool nQueens::horizantalCheck(int pos1, int pos2)
 {
-
 	for (int colomn = 0; colomn < dimensions; colomn++)
 	{
 		if (boardPtr[pos1][colomn] == 'Q')
@@ -133,8 +170,8 @@ bool nQueens::horizantalCheck(int pos1, int pos2)
 		}
 	}
 	return false;
-
 }
+
 bool nQueens::verticalCheck(int pos1, int pos2)
 {
 
@@ -147,24 +184,23 @@ bool nQueens::verticalCheck(int pos1, int pos2)
 	}
 	return false;
 }
+
 char nQueens::resetGame()
 {
 	char** tempPtr = boardPtr;
 	boardPtr = nullptr;
 	queens = 0;
+	moves = 0;
 	char yes = 'y';
 	char no = 'n';
-	for (int i = 0; i < dimensions; i++) {
-
+	for (int i = 0; i < dimensions; i++) 
 		delete[] tempPtr[i];
-	}
 	delete[] tempPtr;
 	char choice = inputChar("\nwould you like to play again? yes or no:", yes, no);
-	if (choice == 'y') {
-		initiateGame();
-		return choice;
-	}
+
+	return choice;
 }
+
 bool nQueens::winCheck() const
 {
 

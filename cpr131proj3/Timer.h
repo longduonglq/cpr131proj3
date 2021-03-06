@@ -6,7 +6,8 @@
 #include <vector>
 using namespace std;
 
-class Timer {
+class Timer 
+{
 	private:
 		long long start_time, end_time, this_time;
 		long mins = 0.0, secs = 0.0; //I remembered, Quach ;)

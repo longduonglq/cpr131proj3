@@ -5,8 +5,21 @@ private:
 	char** boardPtr;
 	size_t dimensions;
 	int queens;
+	int moves;
 public:
 	nQueens();
+	int getQueens();
+
+	int getDimensions();
+
+	int getMoves();
+
+	void setQueens(int newQueenQuantity);
+
+	void setDimensions(int newDimension);
+
+	void setMoves(int newMoveQuantity);
+	
 	/*nQueens(size_t dimensions);*/
 	void initiateGame(); //asks for size, and creates a new array 2 dimensional array to those standards, and assigns board pointer to it
 	void addQueen();
