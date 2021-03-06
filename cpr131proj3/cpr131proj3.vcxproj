@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cpr131proj3.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="part3\nQueens.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>

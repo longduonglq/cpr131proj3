@@ -24,15 +24,26 @@ void timer(int finish)
 	}
 }
 
+void queenHeader()
+{
+	cout << '\t' << char(201) << string(65, char(205)) << char(187) << '\n';
+	cout << '\t' << char(186) << "     \t\t\t  CMPR131: n-Queens                       " << char(186) << '\n';
+	cout << '\t' << char(186) << " Made by:                                                        " << char(186) << '\n';
+	cout << '\t' << char(186) << " - Gabriela Lopez\t- Andrew Thompson\t- Lincoln Nguyen  " << char(186) << '\n';
+	cout << '\t' << char(186) << " - Long Duong\t\t- Christopher Gomez\t- Gia Minh Hoang  " << char(186) << '\n';
+	cout << '\t' << char(186) << " - Duyen Tran                                                    " << char(186) << '\n';
+	cout << "\t" << char(200) << string(65, char(205)) << char(188) << "\n";
+}
+
 void nQueensDriver()
 {
 	Timer myTimer;
 	nQueens game;
-	int matchCounter = 0; //times the game has been played
 	int menuOption;
 	do
 	{
 		system("cls");
+		queenHeader();
 		game.initiateGame();
 		game.displayBoard();
 		myTimer.start();

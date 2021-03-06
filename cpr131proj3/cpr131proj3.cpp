@@ -1,4 +1,4 @@
-// cpr131proj3.cpp : This file contains the 'main' function. Program execution begins and ends there.
+/*// cpr131proj3.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
@@ -49,5 +49,5 @@ int main()
             queensArray[column][row];
         }
     }
-	}*/
-}
+	}
+}*/
