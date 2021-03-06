@@ -53,12 +53,12 @@ void Timer::end()
 	setRecord();
 }
 
-void Timer::end(int boardDimension)
+/*void Timer::end(int boardDimension)
 {
 	end_time = time(0);
 	this_time = end_time - start_time;
 	setQueenRecord(boardDimension);
-}
+}*/
 
 void Timer::setRecord() 
 {
