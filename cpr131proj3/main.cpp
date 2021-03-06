@@ -1,4 +1,6 @@
-// cpr131proj3.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Participants: Gabriela Lopez, Andrew Thompson, Long Duong, Christopher Gomez, Gia Minh Hoang, Duyen Tran and Lincoln Nguyen
+// Date: 03-02-21
+// Description: Chapter 3 Solution
 
 #include <iostream>
 #include <string>
@@ -6,6 +8,8 @@
 #include "part3/drivers.h"
 using namespace std;
 
+//Precondition: N/A
+//Postcondition: Prints menu and returns user int option selected
 int menuOption();
 
 void startTimer()
@@ -45,8 +49,6 @@ int main()
 	return 0;
 }
 
-//Precondition: N/A
-//Postcondition: Prints menu and returns user int option selected
 int menuOption()
 {
 	system("cls");

@@ -1,3 +1,7 @@
+// Participants: Andrew Thompson and Gabriela Lopez
+// Date: 02-23-21
+// Description: n-Queens driver
+
 #pragma once
 #include "input.h"
 #include "nQueens.h"
@@ -24,6 +28,8 @@ void timer(int finish)
 	}
 }
 
+//Precondition: N/A
+//Postcondition: prints project title and collaborator names
 void queenHeader()
 {
 	cout << '\t' << char(201) << string(65, char(205)) << char(187) << '\n';
@@ -35,6 +41,8 @@ void queenHeader()
 	cout << "\t" << char(200) << string(65, char(205)) << char(188) << "\n";
 }
 
+//Precondition: N/A
+//Postcondition: contains all the n-Queens game solution
 void nQueensDriver()
 {
 	Timer myTimer;

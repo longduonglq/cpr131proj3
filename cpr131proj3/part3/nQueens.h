@@ -1,3 +1,7 @@
+// Participants: Andrew Thompson and Gabriela Lopez
+// Date: 02-23-21
+// Description: n-Queens header
+
 #pragma once
 class nQueens
 {
