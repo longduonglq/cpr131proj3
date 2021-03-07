@@ -50,5 +50,5 @@ int main()
             queensArray[column][row];
         }
     }
-	}
-}*/
+	}*/
+}
