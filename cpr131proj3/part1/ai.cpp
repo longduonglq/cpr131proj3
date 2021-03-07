@@ -11,9 +11,9 @@ AI::AI(char** gameBoard)
 	: gameBoard {gameBoard}
 {}
 
-std::pair<int, int> getBestMove()
+std::pair<int, int> AI::getBestMove()
 {
-
+	maximizeUtility().second;
 }
 
 int AI::utility()
