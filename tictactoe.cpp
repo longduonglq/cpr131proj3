@@ -1,5 +1,6 @@
 #include <iostream>
 #include <time.h>
+#include "tictactoe.h"
 using namespace std;
 
 void homeworkHeader(string title);

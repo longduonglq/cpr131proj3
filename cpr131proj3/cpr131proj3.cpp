@@ -1,9 +1,10 @@
-/*// cpr131proj3.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// cpr131proj3.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
 #include <string>
 #include "Timer.h"
+#include "part1/tictactoe.h"
 #include "part3/drivers.h"
 using namespace std;
 
