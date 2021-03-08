@@ -24,10 +24,10 @@
     <ClCompile Include="part3\nQueens.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="part1\ai.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="part1\ai.cpp">
+    <ClCompile Include="part1\tictactoe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

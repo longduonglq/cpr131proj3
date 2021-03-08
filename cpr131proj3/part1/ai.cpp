@@ -13,7 +13,7 @@ AI::AI(char** gameBoard)
 
 std::pair<int, int> AI::getBestMove()
 {
-	maximizeUtility().second;
+	return maximizeUtility().second;
 }
 
 int AI::utility()
@@ -32,7 +32,7 @@ int AI::utility()
 std::pair<int, std::pair<int, int>> AI::maximizeUtility()
 {
 	if (all_of(gameBoard, gameBoard + 3, 
-		[](char** arr) { return all_of(arr, arr + 3, [](char* e) { return *e == ' '; }); }))
+		[](char* arr) { return all_of(arr, arr + 3, [](char e) { return e != ' '; }); }))
 		return  std::make_pair(utility(), make_pair(-1, -1));
 
 	double maxUtility = -std::numeric_limits<double>::infinity();
@@ -61,7 +61,7 @@ std::pair<int, std::pair<int, int>> AI::maximizeUtility()
 std::pair<int, std::pair<int, int>> AI::minimizeUtility()
 {
 	if (all_of(gameBoard, gameBoard + 3,
-		[](char** arr) { return all_of(arr, arr + 3, [](char* e) { return *e == ' '; }); }))
+		[](char* arr) { return all_of(arr, arr + 3, [](char e) { return e != ' '; }); }))
 		return  std::make_pair(utility(), make_pair(-1, -1));
 
 	double minUtility = std::numeric_limits<double>::infinity();
