@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <array>
 #include <experimental/generator>
 
 class AI
@@ -10,7 +11,7 @@ public:
 	const char COMPUTER_SYMBOL = 'O';
 	const char USER_SYMBOL = 'X';
 	const char EMPTY_SYMBOL = ' ';
-	AI(char** gameBoard);
+	AI(char gameBoard[][3]);
 	std::pair<int, int> getBestMove();
 
 private:
@@ -22,5 +23,5 @@ private:
 	std::pair<int, std::pair<int, int>>  maximizeUtility();
 	std::pair<int, std::pair<int, int>> minimizeUtility();
 
-	char** gameBoard;
+	std::array<std::array<char, 3>, 3> gameBoard;
 };

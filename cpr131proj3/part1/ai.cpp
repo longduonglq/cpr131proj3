@@ -7,9 +7,11 @@ using namespace std;
 #define EXPR(MY_EXPR) [](int X){ return MY_EXPR; }
 #define IN_RANGE(X, a, b) ((a <= X && X < b))
 
-AI::AI(char** gameBoard)
-	: gameBoard {gameBoard}
-{}
+AI::AI(char _gameBoard[][3])
+{
+	for (int i = 0; i < 3; i++)
+		std::copy(_gameBoard[i], _gameBoard[i] + 3, gameBoard[i].begin());
+}
 
 std::pair<int, int> AI::getBestMove()
 {
@@ -31,8 +33,8 @@ int AI::utility()
 
 std::pair<int, std::pair<int, int>> AI::maximizeUtility()
 {
-	if (all_of(gameBoard, gameBoard + 3, 
-		[](char* arr) { return all_of(arr, arr + 3, [](char e) { return e != ' '; }); }))
+	if (all_of(gameBoard.begin(), gameBoard.begin() + 3, 
+		[](auto& arr) { return all_of(arr.begin(), arr.begin() + 3, [](char e) { return e != ' '; }); }))
 		return  std::make_pair(utility(), make_pair(-1, -1));
 
 	double maxUtility = -std::numeric_limits<double>::infinity();
@@ -60,8 +62,8 @@ std::pair<int, std::pair<int, int>> AI::maximizeUtility()
 
 std::pair<int, std::pair<int, int>> AI::minimizeUtility()
 {
-	if (all_of(gameBoard, gameBoard + 3,
-		[](char* arr) { return all_of(arr, arr + 3, [](char e) { return e != ' '; }); }))
+	if (all_of(gameBoard.begin(), gameBoard.begin() + 3,
+		[](auto& arr) { return all_of(arr.begin(), arr.begin() + 3, [](char e) { return e != ' '; }); }))
 		return  std::make_pair(utility(), make_pair(-1, -1));
 
 	double minUtility = std::numeric_limits<double>::infinity();

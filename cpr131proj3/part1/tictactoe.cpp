@@ -1,4 +1,5 @@
 #include "tictactoe.h"
+#include "ai.h"
 #include <iostream>
 using namespace std;
 
@@ -26,9 +27,6 @@ void TicTacToe::run()
 	cout << "Tic-Tac-Toe" << endl;
 	test1.displayBoard();
 
-
-
-
 	do
 	{
 		cout << "Enter the board's row # (1..3) or 0 to forfeit: " << endl;
@@ -46,7 +44,7 @@ void TicTacToe::run()
 		}
 
 		test1.playerMove(row, col);				//this is where the player will input into the 2d array 
-
+		test1.compMove();
 		test1.displayBoard();					//Update after each move
 	} while (true);
 
@@ -75,6 +73,13 @@ void TicTacToe::run()
 void TicTacToe::playerMove(int row, int col)
 {
 	boardSlots[row - 1][col - 1] = 'X';
+}
+
+void TicTacToe::compMove()
+{
+	AI ai(boardSlots);
+	auto bestMove = ai.getBestMove();
+	boardSlots[bestMove.first][bestMove.second] = computer;
 }
 
 void TicTacToe::displayBoard()
