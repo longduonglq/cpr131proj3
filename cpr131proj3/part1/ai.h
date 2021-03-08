@@ -12,6 +12,7 @@ public:
 	const char USER_SYMBOL = 'X';
 	const char EMPTY_SYMBOL = ' ';
 	const int LENGTHY_COST = 2;
+	const int BIG_NUMBER = 10000;
 	AI(char gameBoard[][3]);
 	std::pair<int, int> getBestMove();
 

@@ -46,6 +46,8 @@ int AI::utility()
 		int numComputerSymbols = std::count(seq.cbegin(), seq.cend(), COMPUTER_SYMBOL);
 		int numUserSymbols = std::count(seq.cbegin(), seq.cend(), USER_SYMBOL);
 		int numEmptySymbols = std::count(seq.cbegin(), seq.cend(), EMPTY_SYMBOL);
+		if (numComputerSymbols == 3) return BIG_NUMBER;
+		if (numUserSymbols == 3) return -BIG_NUMBER;
 		totalUtility += (numComputerSymbols + numEmptySymbols - numUserSymbols);
 	}
 	return totalUtility;
@@ -70,12 +72,12 @@ std::pair<int, std::pair<int, int>> AI::maximizeUtility()
 				if (didUserWin())
 				{
 					gameBoard[row][col] = EMPTY_SYMBOL;
-					return  std::make_pair(utility() - 1000 - LENGTHY_COST, make_pair(-1, -1));
+					return  std::make_pair(utility() - BIG_NUMBER - LENGTHY_COST, make_pair(-1, -1));
 				}
 				if (didSelfWin())
 				{
 					gameBoard[row][col] = EMPTY_SYMBOL;
-					return  std::make_pair(utility() + 1000 - LENGTHY_COST, make_pair(row, col));
+					return  std::make_pair(utility() + BIG_NUMBER - LENGTHY_COST, make_pair(row, col));
 				}
 
 				int currUtil;
