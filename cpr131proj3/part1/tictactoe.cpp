@@ -51,39 +51,6 @@ void TicTacToe::run()
 	return ;
 }
 
-void TicTacToe::run()
-{
-	int row;
-	int col;
-	TicTacToe test1;
-
-	cout << "Tic-Tac-Toe" << endl;
-	test1.displayBoard();
-
-	do
-	{
-		cout << "Enter the board's row # (1..3) or 0 to forfeit: " << endl;
-		cin >> row;
-		if (row == 0)
-		{
-			break;
-		}
-
-		cout << "Enter the board's column # (1..3) or 0 to forfeit: " << endl;
-		cin >> col;
-		if (col == 0)
-		{
-			break;
-		}
-
-		test1.playerMove(row, col);				//this is where the player will input into the 2d array 
-		test1.compMove();
-		test1.displayBoard();					//Update after each move
-	} while (true);
-
-	return ;
-}
-
 //void TicTacToe::initBoard() //useless, only meant to see the board at the beginning 
 //{
 //	// Upper outline
@@ -145,7 +112,7 @@ void TicTacToe::resetBoard() // reset the board
 	}
 }
 
-void tictactoeStarter()
+char TicTacToe::checkBoard()
 {
 	//checking XXX for each rows
 	if (boardSlots[0][0] == 'X' && boardSlots[0][1] == 'X' && boardSlots[0][2] == 'X')
