@@ -26,7 +26,12 @@ int AI::utility()
 		int numComputerSymbols = std::count(seq.cbegin(), seq.cend(), COMPUTER_SYMBOL);
 		int numUserSymbols = std::count(seq.cbegin(), seq.cend(), USER_SYMBOL);
 		int numEmptySymbols = std::count(seq.cbegin(), seq.cend(), EMPTY_SYMBOL);
-		totalUtility += (numComputerSymbols + numEmptySymbols - numUserSymbols);
+		if (numComputerSymbols == 3)
+			totalUtility += 1000;
+		else if (numUserSymbols == 3)
+			totalUtility -= 1000;
+		else
+			totalUtility += (numComputerSymbols + numEmptySymbols - numUserSymbols);
 	}
 	return totalUtility;
 }
@@ -57,7 +62,7 @@ std::pair<int, std::pair<int, int>> AI::maximizeUtility()
 			}
 		}
 	}
-	return make_pair(static_cast<int>(maxUtility), bestMove);
+	return make_pair(static_cast<int>(maxUtility - LENGTH_COST), bestMove);
 }
 
 std::pair<int, std::pair<int, int>> AI::minimizeUtility()
@@ -86,7 +91,7 @@ std::pair<int, std::pair<int, int>> AI::minimizeUtility()
 			}
 		}
 	}
-	return make_pair(static_cast<int>(minUtility), bestMove);
+	return make_pair(static_cast<int>(minUtility - LENGTH_COST), bestMove);
 }
 
 template <typename RowTransform, typename ColTransform>
