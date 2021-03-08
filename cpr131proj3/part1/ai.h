@@ -20,6 +20,8 @@ private:
 	std::vector<char> generateSequence(int row, int col, RowTransform&&, ColTransform&&);
 	std::experimental::generator<std::vector<char>> allSequences();
 
+	bool didUserWin();
+	bool didSelfWin();
 	int utility();
 	std::pair<int, std::pair<int, int>>  maximizeUtility();
 	std::pair<int, std::pair<int, int>> minimizeUtility();

@@ -79,6 +79,8 @@ void TicTacToe::compMove()
 {
 	AI ai(boardSlots);
 	auto bestMove = ai.getBestMove();
+	if (bestMove.first < 0 || bestMove.second < 0)
+		return;
 	boardSlots[bestMove.first][bestMove.second] = computer;
 }
 
