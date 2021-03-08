@@ -15,7 +15,11 @@ public:
 	//void initBoard();					//Initate the board only to show the numbers
 	void displayBoard();				//Update after each move
 	void resetBoard();					//Reset the board
+<<<<<<< Updated upstream
 	void checkBoard();				    //Check for possible win/lose/draw
+=======
+	char checkBoard();				    //Check for possible win/lose/draw
+>>>>>>> Stashed changes
 	void compMove();				    //Computer make a move
 	void playerMove(int row, int col);  //User make a move
 

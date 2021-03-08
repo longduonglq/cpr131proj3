@@ -114,6 +114,65 @@ void TicTacToe::resetBoard() // reset the board
 
 void tictactoeStarter()
 {
+<<<<<<< Updated upstream
+	auto ttt = TicTacToe();
+	ttt.run();
+	return;
+=======
+	//checking XXX for each rows
+	if (boardSlots[0][0] == 'X' && boardSlots[0][1] == 'X' && boardSlots[0][2] == 'X')
+		return 'X';
+	else if (boardSlots[1][0] == 'X' && boardSlots[1][1] == 'X' && boardSlots[1][2] == 'X')
+		return 'X';
+	else if (boardSlots[2][0] == 'X' && boardSlots[2][1] == 'X' && boardSlots[2][2] == 'X')
+		return 'X';
+
+	//checking XXX for each col
+	else if (boardSlots[0][0] == 'X' && boardSlots[1][0] == 'X' && boardSlots[2][0] == 'X')
+		return 'X';
+	else if (boardSlots[0][1] == 'X' && boardSlots[1][1] == 'X' && boardSlots[2][1] == 'X')
+		return 'X';
+	else if (boardSlots[0][2] == 'X' && boardSlots[1][2] == 'X' && boardSlots[2][2] == 'X')
+		return 'X';
+
+	//checking XXX for the diagonals
+	else if (boardSlots[0][0] == 'X' && boardSlots[1][1] == 'X' && boardSlots[2][2] == 'X')
+		return 'X';
+	else if (boardSlots[0][2] == 'X' && boardSlots[1][1] == 'X' && boardSlots[2][0] == 'X')
+		return 'X';
+
+	//-----------------------------------------------------------------------------------//
+
+	//checking OOO for each rows
+	else if (boardSlots[0][0] == 'O' && boardSlots[0][1] == 'O' && boardSlots[0][2] == 'O')
+		return 'O';
+	else if (boardSlots[1][0] == 'O' && boardSlots[1][1] == 'O' && boardSlots[1][2] == 'O')
+		return 'O';
+	else if (boardSlots[2][0] == 'O' && boardSlots[2][1] == 'O' && boardSlots[2][2] == 'O')
+		return 'O';
+
+	//checking OOO for each col
+	else if (boardSlots[0][0] == 'O' && boardSlots[1][0] == 'O' && boardSlots[2][0] == 'O')
+		return 'O';
+	else if (boardSlots[0][1] == 'O' && boardSlots[1][1] == 'O' && boardSlots[2][1] == 'O')
+		return 'O';
+	else if (boardSlots[0][2] == 'O' && boardSlots[1][2] == 'O' && boardSlots[2][2] == 'O')
+		return 'O';
+
+	//checking OOO for the diagonals
+	else if (boardSlots[0][0] == 'O' && boardSlots[1][1] == 'O' && boardSlots[2][2] == 'O')
+		return 'O';
+	else if (boardSlots[0][2] == 'O' && boardSlots[1][1] == 'O' && boardSlots[2][0] == 'O')
+		return 'O';
+
+	//No Wins
+	else
+		return 'N';
+>>>>>>> Stashed changes
+}
+
+void tictactoeStarter()
+{
 	auto ttt = TicTacToe();
 	ttt.run();
 	return;

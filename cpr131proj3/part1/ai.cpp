@@ -62,7 +62,7 @@ std::pair<int, std::pair<int, int>> AI::maximizeUtility()
 			}
 		}
 	}
-	return make_pair(static_cast<int>(maxUtility - LENGTH_COST), bestMove);
+	return make_pair(static_cast<int>(maxUtility - LENGTHY_COST), bestMove);
 }
 
 std::pair<int, std::pair<int, int>> AI::minimizeUtility()
@@ -91,7 +91,7 @@ std::pair<int, std::pair<int, int>> AI::minimizeUtility()
 			}
 		}
 	}
-	return make_pair(static_cast<int>(minUtility - LENGTH_COST), bestMove);
+	return make_pair(static_cast<int>(minUtility - LENGTHY_COST), bestMove);
 }
 
 template <typename RowTransform, typename ColTransform>
