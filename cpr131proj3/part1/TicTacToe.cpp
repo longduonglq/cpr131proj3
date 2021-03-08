@@ -1,4 +1,5 @@
-#include "TicTacToe.h"
+#include "tictactoe.h"
+#include "ai.h"
 #include <iostream>
 using namespace std;
 
@@ -6,7 +7,7 @@ TicTacToe::TicTacToe()
 {
 	computer = 'O';
 	player = 'X';
-	
+
 
 	for (int i = 0; i < 3; i++)   //initiate the boardslot to all spaces
 	{
@@ -15,6 +16,39 @@ TicTacToe::TicTacToe()
 			boardSlots[i][j] = ' ';
 		}
 	}
+}
+
+void TicTacToe::run()
+{
+	int row;
+	int col;
+	TicTacToe test1;
+
+	cout << "Tic-Tac-Toe" << endl;
+	test1.displayBoard();
+
+	do
+	{
+		cout << "Enter the board's row # (1..3) or 0 to forfeit: " << endl;
+		cin >> row;
+		if (row == 0)
+		{
+			break;
+		}
+
+		cout << "Enter the board's column # (1..3) or 0 to forfeit: " << endl;
+		cin >> col;
+		if (col == 0)
+		{
+			break;
+		}
+
+		test1.playerMove(row, col);				//this is where the player will input into the 2d array 
+		test1.compMove();
+		test1.displayBoard();					//Update after each move
+	} while (true);
+
+	return ;
 }
 
 //void TicTacToe::initBoard() //useless, only meant to see the board at the beginning 
@@ -41,6 +75,13 @@ void TicTacToe::playerMove(int row, int col)
 	boardSlots[row - 1][col - 1] = 'X';
 }
 
+void TicTacToe::compMove()
+{
+	AI ai(boardSlots);
+	auto bestMove = ai.getBestMove();
+	boardSlots[bestMove.first][bestMove.second] = computer;
+}
+
 void TicTacToe::displayBoard()
 {
 	// Upper outline
@@ -62,7 +103,7 @@ void TicTacToe::displayBoard()
 
 void TicTacToe::resetBoard() // reset the board
 {
-	for (int i = 0; i < 3; i++)  
+	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
 		{
@@ -71,55 +112,9 @@ void TicTacToe::resetBoard() // reset the board
 	}
 }
 
-char TicTacToe::checkBoard()  //Check for possible win/lose/draw
+void tictactoeStarter()
 {
-	//checking XXX for each rows
-	if (boardSlots[0][0] == 'X' && boardSlots[0][1] == 'X' && boardSlots[0][2] == 'X')
-		return 'X';
-	else if (boardSlots[1][0] == 'X' && boardSlots[1][1] == 'X' && boardSlots[1][2] == 'X')
-		return 'X';
-	else if (boardSlots[2][0] == 'X' && boardSlots[2][1] == 'X' && boardSlots[2][2] == 'X')
-		return 'X';
-
-	//checking XXX for each col
-	else if (boardSlots[0][0] == 'X' && boardSlots[1][0] == 'X' && boardSlots[2][0] == 'X')
-		return 'X';
-	else if (boardSlots[0][1] == 'X' && boardSlots[1][1] == 'X' && boardSlots[2][1] == 'X')
-		return 'X';
-	else if (boardSlots[0][2] == 'X' && boardSlots[1][2] == 'X' && boardSlots[2][2] == 'X')
-		return 'X';
-
-	//checking XXX for the diagonals
-	else if (boardSlots[0][0] == 'X' && boardSlots[1][1] == 'X' && boardSlots[2][2] == 'X')
-		return 'X';
-	else if (boardSlots[0][2] == 'X' && boardSlots[1][1] == 'X' && boardSlots[2][0] == 'X')
-		return 'X';
-	
-	//-----------------------------------------------------------------------------------//
-
-	//checking OOO for each rows
-	else if (boardSlots[0][0] == 'O' && boardSlots[0][1] == 'O' && boardSlots[0][2] == 'O')
-		return 'O';
-	else if (boardSlots[1][0] == 'O' && boardSlots[1][1] == 'O' && boardSlots[1][2] == 'O')
-		return 'O';
-	else if (boardSlots[2][0] == 'O' && boardSlots[2][1] == 'O' && boardSlots[2][2] == 'O')
-		return 'O';
-
-	//checking OOO for each col
-	else if (boardSlots[0][0] == 'O' && boardSlots[1][0] == 'O' && boardSlots[2][0] == 'O')
-		return 'O';
-	else if (boardSlots[0][1] == 'O' && boardSlots[1][1] == 'O' && boardSlots[2][1] == 'O')
-		return 'O';
-	else if (boardSlots[0][2] == 'O' && boardSlots[1][2] == 'O' && boardSlots[2][2] == 'O')
-		return 'O';
-
-	//checking OOO for the diagonals
-	else if (boardSlots[0][0] == 'O' && boardSlots[1][1] == 'O' && boardSlots[2][2] == 'O')
-		return 'O';
-	else if (boardSlots[0][2] == 'O' && boardSlots[1][1] == 'O' && boardSlots[2][0] == 'O')
-		return 'O';
-
-	//No Wins
-	else
-		return 'N';
+	auto ttt = TicTacToe();
+	ttt.run();
+	return;
 }
