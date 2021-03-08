@@ -49,7 +49,7 @@ int main()
 	return 0;
 }
 
-int menuOption()
+int menuOption() 
 {
 	system("cls");
 	cout << '\n';
