@@ -1,6 +1,7 @@
 #include "ai.h"
 #include <cassert>
 #include <algorithm>
+#include <random>
 
 using namespace std;
 
@@ -16,6 +17,12 @@ AI::AI(char _gameBoard[][3])
 std::pair<int, int> AI::getBestMove()
 {
 	return maximizeUtility().second;
+}
+
+bool AI::probabilisticBoolean(double p)
+{
+	double u = (double)rand() / (RAND_MAX + 1);
+	return u < p;
 }
 
 bool AI::didUserWin()
@@ -82,7 +89,7 @@ std::pair<int, std::pair<int, int>> AI::maximizeUtility()
 
 				int currUtil;
 				tie(currUtil, ignore) = minimizeUtility();
-				if (currUtil > maxUtility)
+				if (currUtil > maxUtility || (currUtil == maxUtility && probabilisticBoolean(RANDOM_FACTOR)))
 				{
 					maxUtility = currUtil;
 					bestMove = make_pair(row, col);
