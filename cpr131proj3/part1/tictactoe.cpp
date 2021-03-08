@@ -106,3 +106,10 @@ void TicTacToe::resetBoard() // reset the board
 		}
 	}
 }
+
+void tictactoeStarter()
+{
+	auto ttt = TicTacToe();
+	ttt.run();
+	return;
+}

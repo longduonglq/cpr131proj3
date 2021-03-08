@@ -1,4 +1,7 @@
 #pragma once
+
+#include "ai.h"
+
 class TicTacToe
 {
 private:
@@ -17,3 +20,5 @@ public:
 	void playerMove(int row, int col);  //User make a move
 
 };
+
+void tictactoeStarter();
