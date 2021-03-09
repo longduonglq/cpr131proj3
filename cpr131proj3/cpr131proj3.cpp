@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <string>
-#include "Timer.h"
+//#include "Timer.h"
 #include "part3/drivers.h"
 #include "part1/tictactoe.h"
 
@@ -14,7 +14,7 @@ using namespace std;
 //Postcondition: Prints menu and returns user int option selected
 int menuOption();
 
-void startTimer()
+/*void startTimer()
 {
 	Timer myTimer;                                      //create class
 	for (int i = 0; 1 == 1; i++)
@@ -31,7 +31,7 @@ void startTimer()
 		system("pause");
 		break;
 	}
-}
+}*/
 
 int main()
 {

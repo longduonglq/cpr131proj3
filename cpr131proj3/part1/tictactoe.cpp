@@ -2,10 +2,14 @@
 #include <iostream>
 #include "input.h"
 #include "ai.h"
+#include "Timer.h"
 using namespace std;
 
 TicTacToe::TicTacToe()
 {
+	Timer myTimer;                                      //create class
+	myTimer.start();                                //start timer
+
 	computer = 'O';
 	player = 'X';
 	gameStat = 'U';			//U for unfinished
@@ -195,4 +199,12 @@ char TicTacToe::gameStatus()
 	{
 		displayBoard();
 	}
+}
+
+void endSession() {
+	myTimer.end();                                  //end timer
+	cout << "\tThe average time was " <<
+		myTimer.getAverageMin() << " minutes " <<   //get average minutes
+		myTimer.getAverageSec() << " seconds\n\n";  //get average seconds
+	system("pause");
 }

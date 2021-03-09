@@ -10,7 +10,7 @@ class Timer
 {
 	private:
 		long long start_time, end_time, this_time;
-		long mins = 0.0, secs = 0.0; //I remembered, Quach ;)
+		long mins = 0, secs = 0;
 		vector<long> timeRecords;
 		vector<long> secRecords;
 		vector<long> minRecords;
