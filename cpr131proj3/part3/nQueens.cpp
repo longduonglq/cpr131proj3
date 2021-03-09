@@ -1,21 +1,39 @@
-// Participants: Andrew Thompson and Gabriela Lopez
 // Date: 02-23-21
 // Description: n-Queens implementation
+//
 
 #include "nQueens.h"
 #include "input.h"
 #include <iostream>
 #include <string>
+#include <time.h>
+
 using namespace std;
 
 nQueens::nQueens()
 {
 	dimensions = 0;
-	boardPtr = nullptr;
+	boardPtr = NULL;
+	timePtr = NULL;
 	queens = 0;
 	moves = 0;
+	initialTime = 0.0;
+	sizeOftimeStrg = 25;
 }
+nQueens::~nQueens()
+{
 
+	for (int i = 0; i < dimensions; i++)
+		delete[] boardPtr[i];
+	delete[] boardPtr;
+
+	for (int i = 0; i < 5; i++)
+	{
+		delete[] timePtr[i];
+	}
+	delete[] timePtr;
+
+}
 int nQueens::getQueens()
 {
 	return queens;
@@ -44,43 +62,160 @@ void nQueens::setMoves(int newMoveQuantity)
 
 void nQueens::initiateGame()
 {
-	do
-	{
-		dimensions = inputInteger("Enter the board's dimensions: ", true);
-		if (dimensions > 55)
-			cout << "\nThe board is too big. Please enter a dimension less than 55.\n";
-		else
-			break;
-	} while (true);
 
+	dimensions = inputInteger("Enter the board's dimensions: ", true);
 	int d2 = dimensions;
 	boardPtr = new char* [dimensions];
 	for (int i = 0; i < dimensions; i++)
-		boardPtr[i] = new char[dimensions];
-	for (int i = 0; i < dimensions; i++) 
 	{
-		for (int j = 0; j < dimensions; j++) 
+		boardPtr[i] = new char[dimensions];
+	}
+	for (int i = 0; i < dimensions; i++)
+	{
+		for (int j = 0; j < dimensions; j++)
 		{
 			boardPtr[i][j] = ' ';
 		}
 	}
+
 }
-
-void nQueens::displayBoard() const
+void nQueens::initTimer()
 {
-
-	for (int i = 0; i < dimensions; i++) 
-	{
-		for (int j = 0; j < dimensions; j++) 
+	if (initialTime == 0.0) {
+		if (dimensions > sizeOftimeStrg)
 		{
-			cout << '|' << boardPtr[i][j];
+			sizeOftimeStrg = sizeOftimeStrg + dimensions;
 		}
-		cout << '|' << '\n';
+		initialTime = time(0);
+		timePtr = new long* [5];
+		for (int i = 0; i < 5; i++)
+		{
+			timePtr[i] = new long[sizeOftimeStrg];
+		}
+		for (int i = 0; i < 5; i++)
+		{
+			for (int j = 0; j < sizeOftimeStrg; j++)
+			{
+				timePtr[i][j] = 0;
+			}
+		}
+		/*for (int i = 0; i < 4; i++) code used for testing.
+		{
+			cout << '\n';
+			for (int j = 0; j < sizeOftimeStrg; j++)
+			{
+				cout << timePtr[i][j] << ' ';
+			}
+		}*/
+	}
+	else if (initialTime != 0.0 && sizeOftimeStrg < dimensions)
+	{
+		initialTime = time(0);
+		int oldSize = sizeOftimeStrg;
+		sizeOftimeStrg = sizeOftimeStrg + dimensions;
+		long** tempPtr = timePtr;
+		timePtr = new long* [5];
+		for (int i = 0; i < 5; i++)
+		{
+			timePtr[i] = new long[sizeOftimeStrg];
+		}
+		for (int i = 0; i < 5; i++)
+		{
+			for (int j = 0; j < oldSize; j++)
+			{
+				timePtr[i][j] = tempPtr[i][j];
+			}
+		}
+		for (int i = 0; i < 5; i++)
+		{
+			for (int j = oldSize; j < sizeOftimeStrg; j++)
+			{
+				timePtr[i][j] = 0;
+			}
+		}
+		for (int i = 0; i < 5; i++)
+		{
+			delete[] tempPtr[i];
+		}
+		delete[] tempPtr;
+	}
+	else if (initialTime != 0.0 && sizeOftimeStrg > dimensions)
+	{
+		initialTime = time(0);
 	}
 }
+void nQueens::timerGrab()
+{
+	long timeHolder = time(0);
+	timeHolder = timeHolder - initialTime;
+	if (timePtr[0][dimensions] == 0.0)
+	{
+		timePtr[0][dimensions] = timePtr[0][dimensions] + 1.0;
+		timePtr[1][dimensions] = timeHolder;
+		timePtr[2][dimensions] = timeHolder;
+		timePtr[3][dimensions] = moves;
+		timePtr[4][dimensions] = moves;
+		return;
+	}
+	if (timePtr[0][dimensions] != 0)
+	{
+		timePtr[0][dimensions] = timePtr[0][dimensions] + 1;
+		if (timePtr[1][dimensions] > timeHolder)
+		{
+			timePtr[1][dimensions] = timeHolder;
+			timePtr[3][dimensions] = moves;
+			return;
+		}
+		if (timePtr[2][dimensions] < timeHolder)
+		{
+			timePtr[2][dimensions] = timeHolder;
+			timePtr[4][dimensions] = moves;
+			return;
+		}
 
+	};
+}
+void nQueens::displayBoard() const
+{
+	cout << dimensions << " Queens\n";
+	cout << char(201) << string((dimensions * 2 - 1), char(205)) << char(187) << "\n";
+	for (int i = 0; i < dimensions; i++)
+	{
+		cout << char(186);
+		for (int j = 0; j < dimensions; j++)
+		{
+			if (j != 0)
+				cout << char(179) << boardPtr[i][j];
+			else
+				cout << boardPtr[i][j];
+		}
+		cout << char(186) << '\n';
+	}
+	cout << char(200) << string((dimensions * 2 - 1), char(205)) << char(188) << "\n";
+}
+void nQueens::dispTimes() const
+{
+	bool data = false;
+	cout << "\tGame statistics\n\n";
+	for (int i = 0; i < sizeOftimeStrg; i++)
+	{
+		if (timePtr[0][i] != 0)
+		{
+			data = true;
+			cout << '\n' << timePtr[0][i] << " Games using " << i << " queens were played \n";
+			cout << "\tThe fastest time was " << timePtr[1][i] << " seconds in " << timePtr[3][i] << " moves \n";
+			cout << "\tThe slowest time was " << timePtr[2][i] << " seconds in " << timePtr[4][i] << " moves \n";
+		}
+	}
+	if (!data)
+	{
+		cout << "\tNo game data collected!\n";
+	}
+	return;
+}
 void nQueens::addQueen()
 {
+
 	int pos1, pos2;
 	pos1 = inputInteger("\nPlease enter the desired row: ", 1, dimensions) - 1;
 	pos2 = inputInteger("\nPlease enter the desired column: ", 1, dimensions) - 1;
@@ -107,7 +242,7 @@ void nQueens::addQueen()
 	boardPtr[pos1][pos2] = 'Q';
 	moves++;
 	queens++;
-	return;
+
 }
 
 void nQueens::removeQueen()
@@ -199,15 +334,15 @@ bool nQueens::verticalCheck(int pos1, int pos2)
 
 char nQueens::resetGame()
 {
-	char** tempPtr = boardPtr;
-	boardPtr = nullptr;
+	//	char** tempPtr = boardPtr; destructor handles resetting, no longer using these lines
+	//	boardPtr = NULL;
 	queens = 0;
 	moves = 0;
 	char yes = 'y';
 	char no = 'n';
-	for (int i = 0; i < dimensions; i++) 
+	/*for (int i = 0; i < dimensions; i++)
 		delete[] tempPtr[i];
-	delete[] tempPtr;
+	delete[] tempPtr;*/
 	char choice = inputChar("\nwould you like to play again? yes or no:", yes, no);
 
 	return choice;

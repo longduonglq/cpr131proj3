@@ -3,6 +3,7 @@
 // Description: n-Queens header
 
 #pragma once
+
 class nQueens
 {
 private:
@@ -10,11 +11,16 @@ private:
 	size_t dimensions;
 	int queens;
 	int moves;
+	long** timePtr;
+	long initialTime;
+	size_t sizeOftimeStrg;
 public:
 	//Precondition: declare a queen object
 	//Postcondition: initializes all variables
 	nQueens();
-
+	//Precondition: N/a
+	//Postcondition: destructor for queen objects.
+	~nQueens();
 	//Precondition: N/A
 	//Postcondition: returns the number of queens placed in the board
 	int getQueens();
@@ -38,7 +44,7 @@ public:
 	//Precondition: an int number of movements
 	//Postcondition: sets a number of movements
 	void setMoves(int newMoveQuantity);
-	
+
 	/*nQueens(size_t dimensions);*/
 	void initiateGame(); //asks for size, and creates a new array 2 dimensional array to those standards, and assigns board pointer to it
 
@@ -78,6 +84,14 @@ public:
 	//Precondition: N/A
 	//Postcondition: compares the number of queens in board and the dimension, if both are equal the game finishes
 	bool winCheck() const;
+	//Preconditions: a nQueens object has been created
+	//Postconditions: creates a storage object for game data, as well as keeping track of the time when a new game starts
+	void initTimer();
+	//Preconditions: A game of n-queens has been started, and the user selects no for continue
+	//postconditions: displays all game time data from that session of play for all n-size boards, or displays a message if there was no data stored.
+	void dispTimes() const;
+	//Preconditions: A game of n-queens has been started, and the user selects no for continue
+	//postconditions: displays all game time data from that session of play for all n-size boards, or displays a message if there was no data stored.
+	void timerGrab();
 };
-
 

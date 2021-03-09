@@ -9,25 +9,6 @@
 #include <string>
 using namespace std;
 void nQueensDriver();
-
-void TimerDemo() 
-{
-	Timer myTimer;                                      //create class
-
-		myTimer.start();                                //start timer
-		nQueensDriver();
-		myTimer.end();                                  //end timer
-		for (int i = 0; 1 == 1; i++)
-		{
-		cout << "\n\n\t" <<
-			myTimer.getMinRecord(i) << " minutes " <<   //get minutes at index
-			myTimer.getSecRecord(i) << " seconds\n\n";  //get seconds at index
-		cout << "\taverage: " <<
-			myTimer.getAverageMin() << " minutes " <<   //get average minutes
-			myTimer.getAverageSec() << " seconds\n\n";  //get average seconds
-		}
-}
-
 //Precondition: N/A
 //Postcondition: prints project title and collaborator names
 void queenHeader()
@@ -45,14 +26,15 @@ void queenHeader()
 //Postcondition: contains all the n-Queens game solution
 void nQueensDriver()
 {
-	Timer myTimer;
+	/*Timer myTimer*/
 	nQueens game;
 	int menuOption;
+	game.initiateGame();
+	game.initTimer();
 	do
 	{
 		system("cls");
-		game.initiateGame();
-		myTimer.start();
+		/*myTimer.start();*/
 		queenHeader();
 		game.displayBoard();
 		cout << "Game options:\n";
@@ -60,7 +42,7 @@ void nQueensDriver()
 		cout << "2: Remove an existing queen\n";
 		cout << "0: restart or return to game select\n";
 		menuOption = inputInteger("Option: ", 0, 2);
-		char choice = 'y';
+		char choice = '\0';
 		switch (menuOption)
 		{
 		case 0: choice = game.resetGame(); break;
@@ -68,21 +50,31 @@ void nQueensDriver()
 		case 2: game.removeQueen(); break;
 		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 		}
-		if (choice == 'n')
-			break;
 		if (game.winCheck())
 		{
-			myTimer.end();
+			game.timerGrab();
+
 			if (game.getMoves() == 1)
 				cout << "You have won! You solved " << game.getQueens() << "-Queens in " << game.getMoves() << " move.";
 			else
 				cout << "You have won! You solved " << game.getQueens() << "-Queens in " << game.getMoves() << " moves.";
 			choice = game.resetGame();
+
 		}
 		if (choice == 'n')
+		{
+			game.dispTimes();
 			break;
+		}
+		if (choice == 'y')
+		{
+			game.initiateGame();
+			game.initTimer();
+
+		}
 		cout << '\n';
 		system("pause");
+
 	} while (true);
-	myTimer.displayTimeRecords();
+
 }
