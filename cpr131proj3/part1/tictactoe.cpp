@@ -33,7 +33,7 @@ void TicTacToe::compMove(int row, int col) //This is player2, for testing purpos
 	moveCounter++;
 	cout << "move counter is: " << moveCounter << endl;
 }
-
+ 
 void TicTacToe::displayBoard()
 {
 	// Upper outline
