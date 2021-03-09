@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include "TicTacToe.h"
 //#include "Timer.h"
 #include "part3/drivers.h"
 #include "part1/tictactoe.h"

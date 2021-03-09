@@ -224,9 +224,12 @@ void tictactoeStarter()
 	cout << "Tic-Tac-Toe" << endl;
 	test1.displayBoard();
 
+	Timer myTimer;	
 
 	do
 	{
+		myTimer.start();
+
 		cout << "Enter the board's row # (1..3) or 0 to forfeit: " << endl;
 		cin >> row;
 		if (row == 0)
@@ -246,6 +249,7 @@ void tictactoeStarter()
 		if (test1.didUserWin())
 		{
 			cout << "User Wins" << endl;
+			myTimer.end();
 		}
 
 		test1.compMove();
@@ -257,10 +261,12 @@ void tictactoeStarter()
 		//This line is where the computer should make a move
 
 	} while (true);
-
+	cout << "\tThe average time was " <<
+		myTimer.getAverageMin() << " minutes " <<   //get average minutes
+		myTimer.getAverageSec() << " seconds\n\n";  //get average seconds
+	system("pause");
 	return;
 }
-
 
 //char TicTacToe::gameStatus()
 //{
@@ -322,11 +328,3 @@ void tictactoeStarter()
 //		displayBoard();
 //	}
 //}
-
-void endSession() {
-	myTimer.end();                                  //end timer
-	cout << "\tThe average time was " <<
-		myTimer.getAverageMin() << " minutes " <<   //get average minutes
-		myTimer.getAverageSec() << " seconds\n\n";  //get average seconds
-	system("pause");
-}
