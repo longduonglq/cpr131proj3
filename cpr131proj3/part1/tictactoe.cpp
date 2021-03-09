@@ -64,7 +64,7 @@ void TicTacToe::resetBoard() // reset the board
 	}
 	moveCounter = 0;
 }
-
+ 
 char TicTacToe::checkBoard()  //Check for possible win/lose/draw
 {
 	//checking XXX for each rows
