@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="input.h" />
     <ClInclude Include="part1\ai.h" />
+    <ClInclude Include="part1\input.h" />
     <ClInclude Include="part1\tictactoe.h" />
     <ClInclude Include="part2\tower.h" />
     <ClInclude Include="part3\drivers.h" />

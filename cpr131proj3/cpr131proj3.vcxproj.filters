@@ -56,5 +56,8 @@
     <ClInclude Include="part1\ai.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="part1\input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
