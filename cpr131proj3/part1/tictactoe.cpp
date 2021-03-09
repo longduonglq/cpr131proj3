@@ -1,6 +1,7 @@
 #include "TicTacToe.h"
 #include <iostream>
 #include "input.h"
+#include "ai.h"
 using namespace std;
 
 TicTacToe::TicTacToe()
@@ -64,7 +65,20 @@ void TicTacToe::resetBoard() // reset the board
 	}
 	moveCounter = 0;
 }
- 
+
+bool TicTacToe::didUserWin()
+{
+	return AI(boardSlots).didUserWin();
+}
+bool TicTacToe::didComputerWin()
+{
+	return AI(boardSlots).didSelfWin();
+}
+bool TicTacToe::isTie()
+{
+	return false;
+}
+
 char TicTacToe::checkBoard()  //Check for possible win/lose/draw
 {
 	//checking XXX for each rows
