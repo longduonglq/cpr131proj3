@@ -1,6 +1,6 @@
 #include "TicTacToe.h"
 #include <iostream>
-#include "input.h"
+#include "../input.h"
 #include "ai.h"
 #include "../timer/Timer.h"
 using namespace std;

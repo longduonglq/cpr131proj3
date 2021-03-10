@@ -3,7 +3,7 @@
 //
 
 #include "nQueens.h"
-#include "input.h"
+#include "../input.h"
 #include <iostream>
 #include <string>
 #include <time.h>

@@ -143,17 +143,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cpr131proj3.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="part1\ai.cpp" />
     <ClCompile Include="part1\tictactoe.cpp" />
     <ClCompile Include="part3\nQueens.cpp" />
     <ClCompile Include="tictactoe.cpp" />
-    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="input.h" />
     <ClInclude Include="part1\ai.h" />
-    <ClInclude Include="part1\input.h" />
     <ClInclude Include="part1\tictactoe.h" />
     <ClInclude Include="part2\tower.h" />
     <ClInclude Include="part3\drivers.h" />

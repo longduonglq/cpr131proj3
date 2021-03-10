@@ -4,32 +4,35 @@
 
 #include <iostream>
 #include <string>
-#include "Timer.h"
+#include "part1/tictactoe.h"
+//#include "Timer.h"
 #include "part3/drivers.h"
+#include "part1/tictactoe.h"
+
 using namespace std;
 
 //Precondition: N/A
 //Postcondition: Prints menu and returns user int option selected
 int menuOption();
 
-void startTimer()
+/*void startTimer()
 {
-    Timer myTimer;                                      //create class
-    for (int i = 0; 1 == 1; i++)
-    {
-        myTimer.start();                                //start timer
-        nQueensDriver();
-        myTimer.end();                                  //end timer
-        cout << "\n\n\t" <<
-            myTimer.getMinRecord(i) << " minutes " <<   //get minutes at index
-            myTimer.getSecRecord(i) << " seconds\n\n";  //get seconds at index
-        cout << "\taverage: " <<
-            myTimer.getAverageMin() << " minutes " <<   //get average minutes
-            myTimer.getAverageSec() << " seconds\n\n";  //get average seconds
-        system("pause");
-        break;
-    }
-}
+	Timer myTimer;                                      //create class
+	for (int i = 0; 1 == 1; i++)
+	{
+		myTimer.start();                                //start timer
+		nQueensDriver();
+		myTimer.end();                                  //end timer
+		cout << "\n\n\t" <<
+			myTimer.getMinRecord(i) << " minutes " <<   //get minutes at index
+			myTimer.getSecRecord(i) << " seconds\n\n";  //get seconds at index
+		cout << "\taverage: " <<
+			myTimer.getAverageMin() << " minutes " <<   //get average minutes
+			myTimer.getAverageSec() << " seconds\n\n";  //get average seconds
+		system("pause");
+		break;
+	}
+}*/
 
 int main()
 {
@@ -38,8 +41,8 @@ int main()
 		switch (menuOption())
 		{
 		case 0:  exit(0);
-		//case 1:  system("cls"); tictactoe();     break;
-		//case 2:  system("cls"); towers();  break;
+		case 1:  system("cls"); tictactoeStarter();     break;
+			//case 2:  system("cls"); towers();  break;
 		case 3:  system("cls"); nQueensDriver(); break; //startTimer();
 		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 		}
