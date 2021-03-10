@@ -162,8 +162,6 @@ void towerOfHanoi::getInputDisk()
 	B = new int[disk];
 	C = new int[disk];
 		
-	// reverse the input. Ex: if user input 5, then the function will push_back 5>4>3>2>1 into the vector
-	// so that when we use pop_back the smallest will be popped out.
 	for (int i = 0; i <disk; i++)
 	{
 		A[i] = i + 1;
@@ -246,13 +244,7 @@ void towerOfHanoi::moveTower(char start, char end)
 		C[getTopIndex(3)-1]=A[getTopIndex(1)];
 		A[getTopIndex(1)] = 0;
 	}
-	/*else if (C.back() == 0)
-	{
-		C.pop_back();
-		C.push_back(A.back());
-		A.pop_back();
-		A.push_back(0);
-	}*/
+
 	else
 	{
 		cout << "\nERROR: Cannot make the move. Top disk ";
