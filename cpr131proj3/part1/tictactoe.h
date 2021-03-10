@@ -23,7 +23,7 @@ public:
 	//Postconditions: resets the board to a blank grid
 	void resetBoard();					                       //Reset the board
 	//Preconditions: game is running and the user entered some moves
-	//Postconditions: sets a spot on the board to X					
+	//Postconditions: sets a spot on the board to X		
 	void playerMove(int row, int col);                         //User make a move
 	//Preconditions:a tictactoe object
 	//Postconditions:returns the amount of moves 
@@ -43,7 +43,9 @@ public:
 	//Preconditions: The game is running, and the user input a move
 	//Postconditions: returns true if a spot is occupied by anything but a ' ', false if not
 	bool occupiedCheck(int pos1, int pos2);
-
+	//Preconditions: game is running and the player made a move
+	//postconditions: the computer will preform a legal move
+	void compMove();	
 };
 //Preconditions: The main project program calls this function
 //Postconditions: a game of tictactoe will start and be driven by this function
