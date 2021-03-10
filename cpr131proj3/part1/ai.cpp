@@ -1,3 +1,7 @@
+//Participants: Long Duong 
+//description: Ai for tictactoe
+//date: 03/09/2020
+
 #include "ai.h"
 #include <cassert>
 #include <algorithm>
