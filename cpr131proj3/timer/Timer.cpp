@@ -116,6 +116,43 @@ long Timer::getMinRecord(int index)
 	return minRecords[index];
 }
 
+long Timer::getFastest()
+{
+
+}
+
+long Timer::getSlowestSec()
+{
+	int size = secRecords.size();
+	long min = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (secRecords[i] > min)
+			min = secRecords[i];
+	}
+	return min;
+}
+
+long Timer::getFastest()
+{
+
+}
+
+long Timer::getFastestSec()
+{
+	int size = secRecords.size();
+	long min = 9999999999999999999;
+	for (int i = 0; i < size; i++)
+	{
+		if (secRecords[i] < min)
+			min = secRecords[i];
+	}
+	return min;
+}
+
+vector<long> ;
+vector<long> minRecords;
+
 long Timer::getAverageSec() 
 {
 	setAverageSecsAndMins();
