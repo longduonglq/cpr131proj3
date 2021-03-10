@@ -95,7 +95,7 @@ std::pair<int, std::pair<int, int>> AI::maximizeUtility()
 					bestMove = make_pair(row, col);
 				}
 				gameBoard[row][col] = EMPTY_SYMBOL;
-			}
+			} 
 		}
 	}
 	return make_pair(static_cast<int>(maxUtility - LENGTHY_COST), bestMove);
