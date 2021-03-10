@@ -138,12 +138,14 @@ void tictactoeStarter()
 			row = inputInteger("\nEnter the board's row # (1..3) or 0 to forfeit: ", 0, 3);
 			if (row == 0)
 			{
+				ticTacTimer.end();
 				break;
 			}
 
 			col = inputInteger("\nEnter the board's column # (1..3) or 0 to forfeit: ", 0, 3);
 			if (col == 0)
 			{
+				ticTacTimer.end();
 				break;
 			}
 		} while (board.occupiedCheck(row, col));
@@ -152,6 +154,7 @@ void tictactoeStarter()
 
 		if (row == 0 || col == 0)
 		{
+			ticTacTimer.end();
 			break;
 		}
 
@@ -202,11 +205,10 @@ void tictactoeStarter()
 
 	} while (true);
 
-	ticTacTimer.end();
 	cout << "\n\n\tslowest time: " <<
 		ticTacTimer.getSlowestMin() << " minutes " <<
 		ticTacTimer.getSlowestSec() << " seconds\n\n";
-	cout << "\n\tfastest time: " <<
+	cout << "\tfastest time: " <<
 		ticTacTimer.getFastestMin() << " minutes " <<
 		ticTacTimer.getFastestSec() << " seconds\n\n";
 	cout << "\taverage time: " <<
