@@ -9,8 +9,6 @@ using namespace std;
 void towerDriver()
 {
 	Timer myTimer;
-	myTimer.start();
-	myTimer.end();
 
 	int numberOfGames = 0;
 	do
