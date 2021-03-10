@@ -41,9 +41,6 @@
     <ClInclude Include="part2\tower.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Timer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="part3\nQueens.h">
       <Filter>Header Files</Filter>
     </ClInclude>

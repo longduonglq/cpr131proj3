@@ -72,6 +72,14 @@ class Timer
 		// Postcondition: returns minutes clocked for (index + 1)th time recorded
 		long getMinRecord(int index);
 
+		long getSlowestSec();
+
+		long getSlowestMin();
+
+		long getFastestSec();
+
+		long getFastestMin();
+
 		// Precondition: setRecord();
 		// Postcondition: returns average of seconds of all times recorded
 		long getAverageSec();

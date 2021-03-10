@@ -2,6 +2,7 @@
 #include <iostream>
 #include "../input.h"
 #include "ai.h"
+#include "../Timer/Timer.h"
 using namespace std;
 
 TicTacToe::TicTacToe()
@@ -121,7 +122,16 @@ void tictactoeStarter()
 	cout << "Tic-Tac-Toe" << endl;
 	test1.displayBoard();
 
-
+	Timer ticTacTimer;
+	ticTacTimer.start();                                //start timer
+	ticTacTimer.end();                                  //end timer
+	cout << "\n\n\t" <<
+		ticTacTimer.getMinRecord(i) << " minutes " <<   //get minutes at index
+		ticTacTimer.getSecRecord(i) << " seconds\n\n";  //get seconds at index
+	cout << "\taverage: " <<
+		ticTacTimer.getAverageMin() << " minutes " <<   //get average minutes
+		ticTacTimer.getAverageSec() << " seconds\n\n";  //get average seconds
+	system("pause");
 	do
 	{
 		do

@@ -159,7 +159,7 @@
     <ClInclude Include="part2\TowerOfHanoi.h" />
     <ClInclude Include="part3\drivers.h" />
     <ClInclude Include="part3\nQueens.h" />
-    <ClInclude Include="Timer.h" />
+    <ClInclude Include="timer\Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
