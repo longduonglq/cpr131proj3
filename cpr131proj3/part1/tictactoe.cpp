@@ -84,7 +84,7 @@ bool TicTacToe::didComputerWin()
 
 bool TicTacToe::isTie()
 {
-	if (moveCounter >= 9)
+	if (moveCounter >= 9 && !didUserWin() && !didComputerWin())
 		return true;
 	else
 		return false;
