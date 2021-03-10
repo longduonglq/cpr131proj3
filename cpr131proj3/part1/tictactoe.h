@@ -16,6 +16,7 @@ public:
 	// char gameStatus();					//Check the status of the game
 	void compMove();				    //Computer make a move (unused)
 	void playerMove(int row, int col);  //User make a move
+	int getMoveCounter();              //access moveCounter
 
 	//TODO: Lincoln 
 	char gameCheck();			// wrap the 3 bools underneath to heck for winners

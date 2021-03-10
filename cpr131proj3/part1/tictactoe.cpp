@@ -110,6 +110,9 @@ bool TicTacToe::occupiedCheck(int pos1, int pos2)
 	else
 		return false;
 }
+int TicTacToe::getMoveCounter() {
+	return moveCounter;
+}
 void tictactoeStarter()
 {
 	int row;
@@ -117,23 +120,15 @@ void tictactoeStarter()
 
 	char playGame; //Continue play again yes or no
 	char yes = 'y', no = 'n';
-	TicTacToe test1;
+	TicTacToe board;
 	char winCheck = 'N';
 	cout << "Tic-Tac-Toe" << endl;
-	test1.displayBoard();
+	board.displayBoard();
 
 	Timer ticTacTimer;
-	ticTacTimer.start();                                //start timer
-	ticTacTimer.end();                                  //end timer
-	cout << "\n\n\t" <<
-		ticTacTimer.getMinRecord(i) << " minutes " <<   //get minutes at index
-		ticTacTimer.getSecRecord(i) << " seconds\n\n";  //get seconds at index
-	cout << "\taverage: " <<
-		ticTacTimer.getAverageMin() << " minutes " <<   //get average minutes
-		ticTacTimer.getAverageSec() << " seconds\n\n";  //get average seconds
-	system("pause");
 	do
 	{
+		if (board.getMoveCounter() == 0) ticTacTimer.start();
 		do
 		{
 
@@ -148,7 +143,7 @@ void tictactoeStarter()
 			{
 				break;
 			}
-		} while (test1.occupiedCheck(row, col));
+		} while (board.occupiedCheck(row, col));
 
 		char choice = '\0';
 
@@ -157,20 +152,20 @@ void tictactoeStarter()
 			break;
 		}
 
-		test1.playerMove(row, col);				//<----this is where the player will input into the 2d array 
-		test1.displayBoard();
-		winCheck = test1.gameCheck();
+		board.playerMove(row, col);				//<----this is where the player will input into the 2d array 
+		board.displayBoard();
+		winCheck = board.gameCheck();
 		if (winCheck == 'X')
 		{
 			cout << "User Wins" << endl;
-			test1.displayBoard();
+			board.displayBoard();
 			choice = inputChar("Play again? (Y-yes or N-no): ", yes, no);
 		}
 
 		if (choice == '\0')
 		{
-			test1.compMove();
-			winCheck = test1.gameCheck();
+			board.compMove();
+			winCheck = board.gameCheck();
 			if (winCheck == 'N')
 				cout << "Computer moved!" << endl;
 		}
@@ -178,20 +173,20 @@ void tictactoeStarter()
 		if (winCheck == 'O')
 		{
 			cout << "Computer Wins" << endl;
-			test1.displayBoard();
+			board.displayBoard();
 			choice = inputChar("Play again? (Y-yes or N-no): ", yes, no);
 		}
 
 		if (winCheck == 'D')
 		{
 			cout << "It's a Draw!" << endl;
-			test1.displayBoard();
+			board.displayBoard();
 			choice = inputChar("Play again? (Y-yes or N-no): ", yes, no);
 		}
 
 		if (choice == 'y')
 		{
-			test1.resetBoard();
+			board.resetBoard();
 		}
 
 		if (choice == 'n')
@@ -199,11 +194,22 @@ void tictactoeStarter()
 			break;
 		}
 
-		test1.displayBoard();
+		board.displayBoard();
 
 
 	} while (true);
 
+	ticTacTimer.end();
+	cout << "\n\n\tslowest time: " <<
+		ticTacTimer.getSlowestSec() << " minutes " <<
+		ticTacTimer.getSlowestMin() << " seconds\n\n";
+	cout << "\n\n\tfastest time: " <<
+		ticTacTimer.getFastestSec() << " minutes " <<
+		ticTacTimer.getFastestMin() << " seconds\n\n";
+	cout << "\taverage time: " <<
+		ticTacTimer.getAverageMin() << " minutes " <<
+		ticTacTimer.getAverageSec() << " seconds\n\n";
+	system("pause");
 	return;
 }
 
