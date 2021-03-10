@@ -147,7 +147,6 @@
     <ClCompile Include="part1\ai.cpp" />
     <ClCompile Include="part1\tictactoe.cpp" />
     <ClCompile Include="part3\nQueens.cpp" />
-    <ClCompile Include="tictactoe.cpp" />
     <ClCompile Include="timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>

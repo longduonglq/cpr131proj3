@@ -24,9 +24,6 @@
     <ClCompile Include="part1\tictactoe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tictactoe.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
