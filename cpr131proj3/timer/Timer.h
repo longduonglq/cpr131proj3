@@ -29,6 +29,14 @@ class Timer
 		void setSecsAndMins(long full_time);
 
 		// Precondition: pass in a vector of longs
+		// Postcondition: returns biggest of all values in the vector
+		long getSlowest(vector<long> vals);
+
+		// Precondition: pass in a vector of longs
+		// Postcondition: returns smallest of all values in the vector
+		long getFastest(vector<long> vals);
+
+		// Precondition: pass in a vector of longs
 		// Postcondition: returns average of all values in the vector
 		long getAverage(vector<long> vals);
 
@@ -72,16 +80,20 @@ class Timer
 		// Postcondition: returns minutes clocked for (index + 1)th time recorded
 		long getMinRecord(int index);
 
-		long getSlowest(vector<long> vals);
-
+		// Precondition: setRecord();
+		// Postcondition: returns biggest minutes of all times recorded
 		long getSlowestSec();
 
+		// Precondition: setRecord();
+		// Postcondition: returns biggest minutes of all times recorded
 		long getSlowestMin();
 
-		long getFastest(vector<long> vals);
-
+		// Precondition: setRecord();
+		// Postcondition: returns smallest seconds of all times recorded
 		long getFastestSec();
 
+		// Precondition: setRecord();
+		// Postcondition: returns smallest minutes of all times recorded
 		long getFastestMin();
 
 		// Precondition: setRecord();
