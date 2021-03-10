@@ -173,7 +173,7 @@ long Timer::getAverageMin()
 	return mins;
 }
 
-void Timer::displayTimeRecords()
+/*void Timer::displayTimeRecords()
 {
 	cout << '\n' << mins << " minutes and " << secs << " seconds played this match.\n";
-}
+}*/

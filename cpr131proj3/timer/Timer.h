@@ -104,5 +104,5 @@ class Timer
 		// Postcondition: returns average of minutes of all times recorded
 		long getAverageMin();
 
-		void displayTimeRecords();
+		//void displayTimeRecords();
 };
