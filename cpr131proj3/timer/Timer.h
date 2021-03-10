@@ -72,9 +72,13 @@ class Timer
 		// Postcondition: returns minutes clocked for (index + 1)th time recorded
 		long getMinRecord(int index);
 
+		long getSlowest(vector<long> vals);
+
 		long getSlowestSec();
 
 		long getSlowestMin();
+
+		long getFastest(vector<long> vals);
 
 		long getFastestSec();
 

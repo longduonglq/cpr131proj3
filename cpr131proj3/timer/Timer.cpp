@@ -116,31 +116,31 @@ long Timer::getMinRecord(int index)
 	return minRecords[index];
 }
 
-long Timer::getFastest()
+long Timer::getSlowest(vector<long> vals)
 {
-
+	int size = vals.size();
+	long max = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (vals[i] > max)
+			max = vals[i];
+	}
+	return max;
 }
 
 long Timer::getSlowestSec()
 {
-	int size = secRecords.size();
-	long min = 0;
-	for (int i = 0; i < size; i++)
-	{
-		if (secRecords[i] > min)
-			min = secRecords[i];
-	}
-	return min;
+	return getSlowest(secRecords);
 }
 
-long Timer::getFastest()
+long Timer::getSlowestMin()
 {
-
+	return getSlowest(minRecords);
 }
 
-long Timer::getFastestSec()
+long Timer::getFastest(vector<long> vals)
 {
-	int size = secRecords.size();
+	int size = vals.size();
 	long min = 9999999999999999999;
 	for (int i = 0; i < size; i++)
 	{
@@ -150,8 +150,15 @@ long Timer::getFastestSec()
 	return min;
 }
 
-vector<long> ;
-vector<long> minRecords;
+long Timer::getFastestSec()
+{
+	return getFastest(secRecords);
+}
+
+long Timer::getFastestMin()
+{
+	return getFastest(minRecords);
+}
 
 long Timer::getAverageSec() 
 {
