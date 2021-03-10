@@ -146,6 +146,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="part1\ai.cpp" />
     <ClCompile Include="part1\tictactoe.cpp" />
+    <ClCompile Include="part2\TowerOfHanoi.cpp" />
     <ClCompile Include="part3\nQueens.cpp" />
     <ClCompile Include="timer\Timer.cpp" />
   </ItemGroup>
@@ -154,6 +155,8 @@
     <ClInclude Include="part1\ai.h" />
     <ClInclude Include="part1\tictactoe.h" />
     <ClInclude Include="part2\tower.h" />
+    <ClInclude Include="part2\towerDriver.h" />
+    <ClInclude Include="part2\TowerOfHanoi.h" />
     <ClInclude Include="part3\drivers.h" />
     <ClInclude Include="part3\nQueens.h" />
     <ClInclude Include="Timer.h" />

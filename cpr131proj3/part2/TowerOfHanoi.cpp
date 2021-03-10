@@ -2,7 +2,7 @@
 //description: Implementation file of the TowersOfHanoi class
 //date: 3/9/2021
 #include "TowerOfHanoi.h"
-#include "input.h"
+#include "../input.h"
 #include <iostream>
 #include<iomanip>
 #include <string>
@@ -183,8 +183,8 @@ void towerOfHanoi::dispTowers() const
 void towerOfHanoi::getInputTower(char& from, char& to)
 {
 	string valid = "abcq";
-	from = inputChar("Select the top disk from the start peg (A, B, C, or Q-quit):", valid);
-	to = inputChar("Select the end peg (A, B, C or Q-quit) to move the selected disk:", valid);
+	from = inputChar("Select the top disk from the start peg (A, B, C, or Q-quit): ", valid);
+	to = inputChar("Select the end peg (A, B, C or Q-quit) to move the selected disk: ", valid);
 }
 
  /*depends on the answer from getInputTower(char& from, char& to)
