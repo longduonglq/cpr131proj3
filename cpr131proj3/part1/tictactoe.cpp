@@ -1,3 +1,6 @@
+//Participants: Long Doung, Lincoln Nguyen, Christopher Gomez
+//date: 3/9/2021
+//Description: implementation file for tictactoe.h
 #include "TicTacToe.h"
 #include <iostream>
 #include "../input.h"
