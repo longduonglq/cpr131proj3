@@ -44,7 +44,15 @@ void towerDriver()
 		if (playAgain == no)
 		{
 			myTimer.end();
-			myTimer.displayTimeRecords();
+			cout << "\n\n\tslowest time: " <<
+				myTimer.getSlowestMin() << " minutes " <<
+				myTimer.getSlowestSec() << " seconds\n\n";
+			cout << "\n\tfastest time: " <<
+				myTimer.getFastestMin() << " minutes " <<
+				myTimer.getFastestSec() << " seconds\n\n";
+			cout << "\taverage time: " <<
+				myTimer.getAverageMin() << " minutes " <<
+				myTimer.getAverageSec() << " seconds\n\n";
 			break;
 		}
 		
