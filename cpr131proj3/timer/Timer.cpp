@@ -141,12 +141,13 @@ long Timer::getSlowestMin()
 long Timer::getFastest(vector<long> vals)
 {
 	int size = vals.size();
-	long min = 9999999999999999999;
+	long min = 2147483647;
 	for (int i = 0; i < size; i++)
 	{
-		if (secRecords[i] < min)
-			min = secRecords[i];
+		if (vals[i] < min)
+			min = vals[i];
 	}
+	if (size == 0) min = 0;
 	return min;
 }
 

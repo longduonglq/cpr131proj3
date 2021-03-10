@@ -201,15 +201,14 @@ void tictactoeStarter()
 
 	ticTacTimer.end();
 	cout << "\n\n\tslowest time: " <<
-		ticTacTimer.getSlowestSec() << " minutes " <<
-		ticTacTimer.getSlowestMin() << " seconds\n\n";
-	cout << "\n\n\tfastest time: " <<
-		ticTacTimer.getFastestSec() << " minutes " <<
-		ticTacTimer.getFastestMin() << " seconds\n\n";
+		ticTacTimer.getSlowestMin() << " minutes " <<
+		ticTacTimer.getSlowestSec() << " seconds\n\n";
+	cout << "\n\tfastest time: " <<
+		ticTacTimer.getFastestMin() << " minutes " <<
+		ticTacTimer.getFastestSec() << " seconds\n\n";
 	cout << "\taverage time: " <<
 		ticTacTimer.getAverageMin() << " minutes " <<
 		ticTacTimer.getAverageSec() << " seconds\n\n";
-	system("pause");
 	return;
 }
 
