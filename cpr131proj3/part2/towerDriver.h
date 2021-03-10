@@ -3,12 +3,21 @@
 #include "TowerOfHanoi.h"
 #include <string>
 #include "../input.h"
+#include "../timer/Timer.h"
 
 using namespace std;
 void towerDriver()
 {
+	Timer myTimer;
+	myTimer.start();
+	myTimer.end();
+
+	int numberOfGames = 0;
 	do
 	{
+		numberOfGames++;
+		myTimer.start();
+
 		towerOfHanoi game;
 		game.getInputDisk();
 		char from, to;
@@ -33,8 +42,13 @@ void towerDriver()
 		char yes = 'y', no = 'n';
 		char playAgain = inputChar("Do you want to play again (y/n): ", 'y', 'n');
 		if (playAgain == no)
+		{
+			myTimer.end();
+			myTimer.displayTimeRecords();
 			break;
+		}
 		
+		myTimer.end();
 	} while (true);
 	return;
 }
