@@ -45,7 +45,7 @@ void towerDriver()
 			cout << "\n\n\tslowest time: " <<
 				myTimer.getSlowestMin() << " minutes " <<
 				myTimer.getSlowestSec() << " seconds\n\n";
-			cout << "\n\tfastest time: " <<
+			cout << "\tfastest time: " <<
 				myTimer.getFastestMin() << " minutes " <<
 				myTimer.getFastestSec() << " seconds\n\n";
 			cout << "\taverage time: " <<
