@@ -154,7 +154,6 @@ void tictactoeStarter()
 
 		if (row == 0 || col == 0)
 		{
-			ticTacTimer.end();
 			break;
 		}
 
@@ -180,6 +179,7 @@ void tictactoeStarter()
 		{
 			cout << "Computer Wins" << endl;
 			board.displayBoard();
+			ticTacTimer.end();
 			choice = inputChar("Play again? (Y-yes or N-no): ", yes, no);
 		}
 
@@ -187,6 +187,7 @@ void tictactoeStarter()
 		{
 			cout << "It's a Draw!" << endl;
 			board.displayBoard();
+			ticTacTimer.end();
 			choice = inputChar("Play again? (Y-yes or N-no): ", yes, no);
 		}
 
